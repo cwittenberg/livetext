@@ -16,6 +16,11 @@
       <summary>History list</summary>
       <description>Array of recently extracted text strings.</description>
     </key>
+    <key name="show-tray-icon" type="b">
+      <default>true</default>
+      <summary>Show tray icon</summary>
+      <description>Show the extension icon in the system tray.</description>
+    </key>
     <key name="enable-shortcut" type="b">
       <default>false</default>
       <summary>Enable shortcut</summary>
@@ -25,6 +30,21 @@
       <default>[]</default>
       <summary>Trigger shortcut</summary>
       <description>Keyboard shortcut to trigger snap text extraction.</description>
+    </key>
+    <key name="click-to-smart-snap" type="b">
+      <default>true</default>
+      <summary>Click to Smart Snap</summary>
+      <description>Instantly extract text at the pointer location with a single click instead of dragging.</description>
+    </key>
+    <key name="enable-smart-click" type="b">
+      <default>true</default>
+      <summary>Enable Smart OCR Pointer</summary>
+      <description>Use a keyboard shortcut to instantly extract and parse text exactly where your mouse is pointing.</description>
+    </key>
+    <key name="smart-shortcut-trigger" type="as">
+      <default>[]</default>
+      <summary>Smart Pointer Shortcut</summary>
+      <description>Keyboard shortcut to trigger background extraction at pointer location.</description>
     </key>
     <key name="translate-text" type="b">
       <default>false</default>

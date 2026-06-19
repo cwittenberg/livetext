@@ -100,6 +100,10 @@ sudo pacman -S gnome-screenshot tesseract tesseract-data-eng zbar imagemagick
 * **Request a Feature:** [Feature Requests](https://github.com/cwittenberg/snaptext/issues/new?template=feature_request.md)
 * **Support the Developer:** [Buy me a coffee ☕](https://ko-fi.com/cwittenberg)
 
+## Disclaimer
+
+Optical Character Recognition (OCR) and smart data extraction are inherently imperfect. Detections provided by this extension may be inaccurate, incomplete, or incorrectly formatted due to screen artifacts or hallucinated text. Always verify critical information (like financial numbers or addresses) manually. The author bears no responsibility for any ramifications arising from the use of incorrect data extracted by this tool.
+
 ## License
 
 This project is licensed under the GNU General Public License v3.0 (GPLv3). See the `LICENSE` file for full details.

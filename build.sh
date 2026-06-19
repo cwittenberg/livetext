@@ -19,7 +19,7 @@ mkdir -p "$BUILD_DIR/locale"
 mkdir -p "po"
 
 echo "Validating extension files..."
-for file in metadata.json extension.js selection.js prefs.js ocr.js dependencies.js schemas/org.gnome.shell.extensions.snaptext.gschema.xml; do
+for file in metadata.json extension.js selection.js prefs.js ocr.js dependencies.js smartextractor.js smartmenu.js smartpatterns.js schemas/org.gnome.shell.extensions.snaptext.gschema.xml; do
     if [ ! -f "$file" ]; then
         echo "Error: $file not found in the current directory. Please make sure all files exist."
         exit 1
@@ -31,7 +31,7 @@ glib-compile-schemas --strict schemas/
 
 echo "Extracting strings and generating translation template..."
 if command -v xgettext &> /dev/null; then
-    xgettext --from-code=UTF-8 --language=JavaScript --keyword=_ --add-comments -o po/snaptext.pot extension.js selection.js prefs.js dependencies.js ocr.js
+    xgettext --from-code=UTF-8 --language=JavaScript --keyword=_ --add-comments -o po/snaptext.pot extension.js selection.js prefs.js dependencies.js ocr.js smartextractor.js smartmenu.js smartpatterns.js
     echo "Translation template generated at po/snaptext.pot"
 else
     echo "Warning: xgettext not found, skipping string extraction."
@@ -57,10 +57,9 @@ for po_file in po/*.po; do
 done
 
 echo "Copying files to build directory..."
-cp metadata.json extension.js selection.js prefs.js ocr.js dependencies.js "$BUILD_DIR/"
+cp metadata.json extension.js selection.js prefs.js ocr.js dependencies.js smartextractor.js smartmenu.js smartpatterns.js "$BUILD_DIR/"
 cp -r schemas "$BUILD_DIR/"
 
-# Remove the compiled schema from the build payload to pass EGO-P-006 validation
 rm -f "$BUILD_DIR/schemas/gschemas.compiled"
 
 if [ -f stylesheet.css ]; then
@@ -87,6 +86,9 @@ if command -v gnome-extensions &> /dev/null; then
         "--extra-source=prefs.js"
         "--extra-source=ocr.js"
         "--extra-source=dependencies.js"
+        "--extra-source=smartextractor.js"
+        "--extra-source=smartmenu.js"
+        "--extra-source=smartpatterns.js"
         "--extra-source=schemas"
     )
 
@@ -137,7 +139,6 @@ else
     if command -v python3.12 &> /dev/null; then
         echo "Creating local Shexli virtual environment..."
         python3.12 -m venv "$SHEXLI_VENV"
-        # shellcheck disable=SC1091
         source "$SHEXLI_VENV/bin/activate"
 
         python -m pip install --upgrade pip
@@ -163,6 +164,9 @@ cp "$BUILD_DIR/selection.js" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/prefs.js" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/ocr.js" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/dependencies.js" "$EXTENSION_DIR/"
+cp "$BUILD_DIR/smartextractor.js" "$EXTENSION_DIR/"
+cp "$BUILD_DIR/smartmenu.js" "$EXTENSION_DIR/"
+cp "$BUILD_DIR/smartpatterns.js" "$EXTENSION_DIR/"
 cp -r "$BUILD_DIR/schemas" "$EXTENSION_DIR/"
 
 if [ -f "$BUILD_DIR/stylesheet.css" ]; then

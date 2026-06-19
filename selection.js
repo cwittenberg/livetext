@@ -26,6 +26,7 @@ export const SelectionUI = GObject.registerClass(
             this._startY = 0;
             this._isDragging = false;
             this._isClosed = false;
+            this._isExtracting = false;
             this._selectionEmitted = false;
             this._grab = null;
 
@@ -40,12 +41,14 @@ export const SelectionUI = GObject.registerClass(
             }));
             this.add_child(this._bg);
 
-            //inline eyecandy, Orange is Yaru-orange (to mimic the legacy gnome-screenshot look n feel, pretty :))
             this._selectionBox = new St.Widget({
                 reactive: false,
                 can_focus: false,
                 style: 'border: 2px solid #E95420; background-color: rgba(233, 84, 32, 0.2);',
             });
+            
+            this._selectionBox.set_position(0, 0);
+            this._selectionBox.set_size(0, 0);
             this._selectionBox.hide();
             this.add_child(this._selectionBox);
 
@@ -95,28 +98,33 @@ export const SelectionUI = GObject.registerClass(
         }
 
         _setCrosshairCursor() {
-            if (this._isClosed) {
+            if (this._isClosed || this._isExtracting) {
                 return;
             }
 
             this._applyCursor('CROSSHAIR');
         }
 
+        _setBlankCursor() {
+            if (this._isClosed) {
+                return;
+            }
+
+            this._applyCursor('BLANK');
+        }
+
         _setDefaultCursor() {
-            // Attempt to use INHERIT first, fallback to DEFAULT
             if (!this._applyCursor('INHERIT')) {
                 this._applyCursor('DEFAULT');
             }
         }
 
         _applyCursor(cursorName) {
-            // GNOME 47-50+ (Clutter.CursorType on St.Widget)
             if (typeof this.set_cursor_type === 'function' && Clutter.CursorType?.[cursorName] !== undefined) {
                 this.set_cursor_type(Clutter.CursorType[cursorName]);
                 return true;
             }
 
-            // GNOME 45-46 (Meta.Cursor via global.display)
             if (global.display && typeof global.display.set_cursor === 'function' && Meta.Cursor?.[cursorName] !== undefined) {
                 global.display.set_cursor(Meta.Cursor[cursorName]);
                 return true;
@@ -142,14 +150,14 @@ export const SelectionUI = GObject.registerClass(
                 return Clutter.EVENT_STOP;
             }
 
-            let [x, y] = event.get_coords();
-            this._startX = x;
-            this._startY = y;
+            let [origX, origY] = event.get_coords();
+            this._startX = Math.round(origX) || 0;
+            this._startY = Math.round(origY) || 0;
             this._isDragging = true;
 
-            this._selectionBox.set_position(x, y);
+            this._selectionBox.set_position(this._startX, this._startY);
             this._selectionBox.set_size(0, 0);
-            this._selectionBox.show();
+            this._selectionBox.hide();
 
             return Clutter.EVENT_STOP;
         }
@@ -161,21 +169,31 @@ export const SelectionUI = GObject.registerClass(
                 return Clutter.EVENT_STOP;
             }
 
-            let [x, y] = event.get_coords();
+            //bugfix, user reported issues with nothing happening due to wrong coords
+
+            let [origX, origY] = event.get_coords();
+            let x = Math.round(origX) || 0;
+            let y = Math.round(origY) || 0;
+            
             let rectX = Math.min(x, this._startX);
             let rectY = Math.min(y, this._startY);
             let rectW = Math.abs(x - this._startX);
             let rectH = Math.abs(y - this._startY);
 
             this._selectionBox.set_position(rectX, rectY);
-            this._selectionBox.set_size(rectW, rectH);
+
+            if (rectW > 4 && rectH > 4) {
+                this._selectionBox.set_size(rectW, rectH);
+                this._selectionBox.show();
+            } else {
+                this._selectionBox.hide();
+                this._selectionBox.set_size(0, 0);
+            }
 
             return Clutter.EVENT_STOP;
         }
 
         vfunc_button_release_event(event) {
-            this._setCrosshairCursor();
-
             let button = event.get_button();
             if (button !== Clutter.BUTTON_PRIMARY) {
                 return Clutter.EVENT_STOP;
@@ -186,19 +204,25 @@ export const SelectionUI = GObject.registerClass(
             }
 
             this._isDragging = false;
+            this._isExtracting = true;
 
-            let [x, y] = event.get_coords();
+            let [origX, origY] = event.get_coords();
+            let x = Math.round(origX) || 0;
+            let y = Math.round(origY) || 0;
+            
             let rectX = Math.min(x, this._startX);
             let rectY = Math.min(y, this._startY);
             let rectW = Math.abs(x - this._startX);
             let rectH = Math.abs(y - this._startY);
 
-            this.close();
+            this._selectionBox.hide();
+            this._bg.hide();
+            this._setBlankCursor();
 
             if (rectW > 5 && rectH > 5) {
-                this._emitSelection(Math.round(rectX), Math.round(rectY), Math.round(rectW), Math.round(rectH));
+                this._emitSelection(rectX, rectY, rectW, rectH);
             } else {
-                this._emitSelection(null, null, null, null);
+                this._emitSelection(x, y, 0, 0);
             }
 
             return Clutter.EVENT_STOP;

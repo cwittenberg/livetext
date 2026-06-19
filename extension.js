@@ -15,6 +15,7 @@ import Soup from 'gi://Soup';
 import { OcrProcessor } from './ocr.js';
 import { getMissingAppsErrorDialog } from './dependencies.js';
 import { SelectionUI } from './selection.js';
+import { SmartMenu } from './smartmenu.js';
 
 const HISTORY_LIMIT = 15;
 const HISTORY_LABEL_LIMIT = 40;
@@ -33,15 +34,17 @@ export default class SnapTextExtension extends Extension {
         this._translateToggle = null;
         this._historySection = null;
         this._soupSession = new Soup.Session();
+
+        this._smartMenuContext = new SmartMenu(this);
         
-        // Use a standard PanelMenu.Button
         this._indicator = new PanelMenu.Button(0.0, this.metadata.name, false);
         this._indicator.add_child(new St.Icon({
             gicon: Gio.FileIcon.new(this.dir.get_child('trayicon.svg')),
             style_class: 'system-status-icon',
         }));
+        
+        this._indicator.visible = this._settings.get_boolean('show-tray-icon');
 
-        // Intercept events in the CAPTURE phase to preempt GNOME's default behavior
         this._indicator.connectObject('captured-event', (_actor, event) => {
             let type = event.type();
             
@@ -54,19 +57,16 @@ export default class SnapTextExtension extends Extension {
             if (button === 1 || button === 3) {
                 if (type === Clutter.EventType.BUTTON_RELEASE) {
                     if (button === 1) {
-                        // Left Click: Close menu if open, trigger extraction
                         if (this._indicator.menu.isOpen) {
                             this._indicator.menu.close();
                         }
                         this._triggerExtraction();
                     } else if (button === 3) {
-                        // Right Click: Build and toggle menu
                         this._buildMenu();
                         this._indicator.menu.toggle();
                     }
                 }
                 
-                // Stop propagation on BOTH press and release so PanelMenu.Button never sees it
                 return Clutter.EVENT_STOP;
             }
 
@@ -87,7 +87,6 @@ export default class SnapTextExtension extends Extension {
             this._extractTimeoutId = null;
         }
 
-        // Allow the compositor to completely release the pointer grab before snapping
         this._extractTimeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 150, () => {
             this._extractTimeoutId = null;
             this._extractTextAsync().catch(error => {
@@ -115,19 +114,22 @@ export default class SnapTextExtension extends Extension {
     }
 
     _onSettingsChanged(_settings, key) {
-        if (key === 'shortcut-trigger') {
+        if (key === 'shortcut-trigger' || key === 'smart-shortcut-trigger' || key === 'enable-smart-click' || key === 'enable-shortcut') {
             this._bindShortcut();
             return;
         }
         
+        if (key === 'show-tray-icon') {
+            this._indicator.visible = this._settings.get_boolean('show-tray-icon');
+            return;
+        }
+
         if (key === 'history-list') {
-            // Dynamically update just the history list without destroying the menu
             this._populateHistory();
             return;
         }
         
         if (key === 'keep-history') {
-            // Layout fundamentally changes, safe to rebuild but close menu first to prevent glitches
             if (this._indicator && this._indicator.menu.isOpen) {
                 this._indicator.menu.close();
             }
@@ -187,7 +189,6 @@ export default class SnapTextExtension extends Extension {
             this._settings.set_boolean('translate-text', state);
         }, this);
         
-        // Override activate to prevent the menu from instantly closing when toggled
         this._translateToggle.activate = function(event) {
             this.toggle();
         };
@@ -195,7 +196,6 @@ export default class SnapTextExtension extends Extension {
         this._indicator.menu.addMenuItem(this._translateToggle);
         this._indicator.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
 
-        // Base non-reactive row for the action buttons
         let actionsRow = new PopupMenu.PopupBaseMenuItem({ reactive: false, can_focus: false });
         
         let buttonBox = new St.BoxLayout({
@@ -236,7 +236,9 @@ export default class SnapTextExtension extends Extension {
 
         settingsBtn.connectObject('clicked', () => {
             this._indicator.menu.close();
-            this.openPreferences();
+            this.openPreferences().catch(error => {
+                this._logDebug(`Could not open preferences: ${error}`, true);
+            });
         }, this);
         
         buttonBox.add_child(settingsBtn);
@@ -264,6 +266,7 @@ export default class SnapTextExtension extends Extension {
 
     _bindShortcut() {
         Main.wm.removeKeybinding('shortcut-trigger');
+        Main.wm.removeKeybinding('smart-shortcut-trigger');
         
         Main.wm.addKeybinding(
             'shortcut-trigger',
@@ -271,8 +274,25 @@ export default class SnapTextExtension extends Extension {
             Meta.KeyBindingFlags.NONE,
             Shell.ActionMode.NORMAL | Shell.ActionMode.OVERVIEW,
             () => {
-                this._logDebug('Shortcut triggered.');
+                if (!this._settings.get_boolean('enable-shortcut')) return;
+                this._logDebug('Main shortcut triggered.');
                 this._triggerExtraction();
+            }
+        );
+
+        Main.wm.addKeybinding(
+            'smart-shortcut-trigger',
+            this._settings,
+            Meta.KeyBindingFlags.NONE,
+            Shell.ActionMode.NORMAL | Shell.ActionMode.OVERVIEW,
+            () => {
+                if (!this._settings.get_boolean('enable-smart-click')) return;
+                this._logDebug('Smart pointer shortcut triggered.');
+                let [x, y, mods] = global.get_pointer();
+                
+                this._smartMenuContext.trigger(Math.round(x), Math.round(y)).catch(error => {
+                    this._logDebug(`Smart click extraction failed: ${error}`, true);
+                });
             }
         );
     }
@@ -414,8 +434,6 @@ export default class SnapTextExtension extends Extension {
     async _getSelectionArea() {
         return new Promise((resolve) => {
             this._selectionUI = new SelectionUI((x, y, w, h) => {
-                this._selectionUI = null;
-                
                 if (this._selectionTimeoutId) {
                     GLib.source_remove(this._selectionTimeoutId);
                 }
@@ -429,7 +447,7 @@ export default class SnapTextExtension extends Extension {
             this._selectionUI.open();
         });
     }
-
+    
     async _takeScreenshot(x, y, w, h, stream) {
         return new Promise((resolve) => {
             try {
@@ -450,13 +468,13 @@ export default class SnapTextExtension extends Extension {
             }
         });
     }
-
+    
     async _extractTextAsync() {
         // Abort any previously running extraction flow
         if (this._cancellable) {
             this._cancellable.cancel();
         }
-        
+
         // Create a new cancellation token for this specific execution
         let currentCancellable = new Gio.Cancellable();
         this._cancellable = currentCancellable;
@@ -470,7 +488,26 @@ export default class SnapTextExtension extends Extension {
         }
 
         let area = await this._getSelectionArea();
+        
+        let cleanupSelectionUI = () => {
+            if (this._selectionUI) {
+                this._selectionUI.close();
+                this._selectionUI = null;
+            }
+        };
+
         if (area.x === null || this._isCancelled(currentCancellable)) {
+            cleanupSelectionUI();
+            return;
+        }
+
+        if (area.w === 0 && area.h === 0) {
+            cleanupSelectionUI();
+            if (this._settings.get_boolean('click-to-smart-snap')) {
+                this._smartMenuContext.trigger(area.x, area.y).catch(error => {
+                    this._logDebug(`Smart click extraction failed: ${error}`, true);
+                });
+            }
             return;
         }
 
@@ -486,6 +523,7 @@ export default class SnapTextExtension extends Extension {
             
             stream = file.replace(null, false, Gio.FileCreateFlags.NONE, null);
         } catch (error) {
+            cleanupSelectionUI();
             if (!this._isCancelled(currentCancellable)) {
                 this._notifyError(`Could not create temporary screenshot file: ${error}`);
             }
@@ -495,6 +533,8 @@ export default class SnapTextExtension extends Extension {
         try {
             let gotScreenshot = await this._takeScreenshot(area.x, area.y, area.w, area.h, stream);
             stream.close(null);
+
+            cleanupSelectionUI();
 
             if (gotScreenshot && !this._isCancelled(currentCancellable)) {
                 const ocrProcessor = new OcrProcessor(currentCancellable, this._activeProcesses, (msg) => this._notifyError(msg), this._logDebug.bind(this));
@@ -515,17 +555,18 @@ export default class SnapTextExtension extends Extension {
                         text = await this._translateText(text, currentCancellable);
                     }
 
-                    // Final check to prevent overlapping executions from pasting
                     if (!this._isCancelled(currentCancellable)) {
                         this._handleExtractedText(text);
                     }
                 }
             }
         } catch (error) {
+            cleanupSelectionUI();
             if (!this._isCancelled(currentCancellable)) {
                 this._notifyError(`Text extraction failed: ${error}`);
             }
         } finally {
+            cleanupSelectionUI();
             if (imagePath && GLib.file_test(imagePath, GLib.FileTest.EXISTS)) {
                 if (GLib.unlink(imagePath) !== 0) {
                     this._logDebug(`Could not remove temporary screenshot file`, true);
@@ -558,6 +599,11 @@ export default class SnapTextExtension extends Extension {
     }
 
     disable() {
+        if (this._smartMenuContext) {
+            this._smartMenuContext.destroy();
+            this._smartMenuContext = null;
+        }
+
         if (this._soupSession) {
             this._soupSession.abort();
             this._soupSession = null;
@@ -572,7 +618,7 @@ export default class SnapTextExtension extends Extension {
             GLib.source_remove(this._selectionTimeoutId);
             this._selectionTimeoutId = null;
         }
-        
+
         if (this._selectionUI) {
             this._selectionUI._onSelected(null, null, null, null);
             this._selectionUI.close();
@@ -585,6 +631,7 @@ export default class SnapTextExtension extends Extension {
         }
         
         Main.wm.removeKeybinding('shortcut-trigger');
+        Main.wm.removeKeybinding('smart-shortcut-trigger');
 
         if (this._settings) {
             this._settings.disconnectObject(this);
