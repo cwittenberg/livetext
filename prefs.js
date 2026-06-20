@@ -129,6 +129,9 @@ export default class SnapTextPreferences extends ExtensionPreferences {
     fillPreferencesWindow(window) {
         const settings = this.getSettings();
         
+        // ==========================================
+        // PAGE: GENERAL
+        // ==========================================
         const pageGeneral = new Adw.PreferencesPage({
             title: _('General'),
             icon_name: 'preferences-system-symbolic'
@@ -265,24 +268,11 @@ export default class SnapTextPreferences extends ExtensionPreferences {
         groupSmart.add(smartShortcutRow);
 
         pageGeneral.add(groupSmart);
-
-        const groupLinks = new Adw.PreferencesGroup();
-        const linkBox = new Gtk.Box({
-            orientation: Gtk.Orientation.HORIZONTAL,
-            spacing: 12,
-            homogeneous: true,
-            halign: Gtk.Align.CENTER,
-            margin_top: 16,
-            margin_bottom: 16
-        });
-        linkBox.append(createLinkButton(_('Buy me a coffee \u2615'), 'https://ko-fi.com/cwittenberg', 'suggested-action'));
-        linkBox.append(createLinkButton(_('Report a Bug \uD83D\uDC1E'), 'https://github.com/cwittenberg/snaptext/issues/new?template=bug_report.md'));
-        linkBox.append(createLinkButton(_('Request a Feature \uD83D\uDCA1'), 'https://github.com/cwittenberg/snaptext/issues/new?template=feature_request.md'));
-        groupLinks.add(linkBox);
-        
-        pageGeneral.add(groupLinks);
         window.add(pageGeneral);
 
+        // ==========================================
+        // PAGE: ADVANCED
+        // ==========================================
         const pageAdvanced = new Adw.PreferencesPage({
             title: _('Advanced'),
             icon_name: 'preferences-other-symbolic'
@@ -415,22 +405,90 @@ export default class SnapTextPreferences extends ExtensionPreferences {
         groupAdvancedSettings.add(debugRow);
         
         pageAdvanced.add(groupAdvancedSettings);
+        window.add(pageAdvanced);
 
-        const groupAbout = new Adw.PreferencesGroup({
-            title: _('About')
+        // ==========================================
+        // PAGE: ABOUT
+        // ==========================================
+        const pageAbout = new Adw.PreferencesPage({
+            title: _('About'),
+            icon_name: 'help-about-symbolic'
+        });
+
+        const aboutGroup = new Adw.PreferencesGroup();
+
+        const aboutBox = new Gtk.Box({
+            orientation: Gtk.Orientation.VERTICAL,
+            spacing: 24,
+            margin_top: 32,
+            margin_bottom: 32,
+            halign: Gtk.Align.CENTER
+        });
+
+        // App Icon & Name
+        const headerBox = new Gtk.Box({
+            orientation: Gtk.Orientation.VERTICAL,
+            spacing: 6,
+            halign: Gtk.Align.CENTER,
         });
         
-        groupAbout.add(new Adw.ActionRow({ title: _('Author'), subtitle: 'Christian Wittenberg', title_lines: 0, subtitle_lines: 0 }));
+        const iconFile = this.dir.get_child('trayicon.svg');
+        const icon = new Gtk.Image({
+            gicon: Gio.FileIcon.new(iconFile),
+            pixel_size: 96,
+            margin_bottom: 12
+        });
         
-        groupAbout.add(new Adw.ActionRow({ 
-            title: _('Version'), 
-            subtitle: this.metadata.version !== undefined ? this.metadata.version.toString() : 'Local / EGO (Auto-injected)', 
-            title_lines: 0, 
-            subtitle_lines: 0 
-        }));
+        const titleLabel = new Gtk.Label({
+            label: 'SnapText',
+            css_classes: ['title-1']
+        });
         
-        pageAdvanced.add(groupAbout);
+        const versionStr = this.metadata.version !== undefined ? this.metadata.version.toString() : 'Local / EGO';
+        const versionLabel = new Gtk.Label({
+            label: _('Version %s').replace('%s', versionStr)
+        });
         
-        window.add(pageAdvanced);
+        const authorLabel = new Gtk.Label({
+            label: _('by Christian Wittenberg'),
+            css_classes: ['dim-label']
+        });
+        
+        headerBox.append(icon);
+        headerBox.append(titleLabel);
+        headerBox.append(versionLabel);
+        headerBox.append(authorLabel);
+
+        // Buttons
+        const linkBox = new Gtk.Box({
+            orientation: Gtk.Orientation.HORIZONTAL,
+            spacing: 12,
+            homogeneous: true,
+            halign: Gtk.Align.CENTER,
+            margin_top: 12
+        });
+        linkBox.append(createLinkButton(_('Buy me a coffee \u2615'), 'https://ko-fi.com/cwittenberg', 'suggested-action'));
+        linkBox.append(createLinkButton(_('Report a Bug \uD83D\uDC1E'), 'https://github.com/cwittenberg/snaptext/issues/new?template=bug_report.md'));
+        linkBox.append(createLinkButton(_('Request a Feature \uD83D\uDCA1'), 'https://github.com/cwittenberg/snaptext/issues/new?template=feature_request.md'));
+
+        // Disclaimer
+        const disclaimerLabel = new Gtk.Label({
+            label: _("<b>Disclaimer</b>\nOptical Character Recognition (OCR) and smart data extraction are inherently imperfect. Results from this extension may be inaccurate, incomplete, incorrectly formatted, or affected by screen artifacts and misrecognized text. Always verify critical information, such as financial numbers, addresses, names, dates, and other sensitive data, manually. The author is not responsible for any consequences resulting from the use of incorrect or incomplete data extracted by this tool. Use this extension at your own risk."),
+            use_markup: true,
+            wrap: true,
+            justify: Gtk.Justification.CENTER,
+            css_classes: ['dim-label'],
+            max_width_chars: 60,
+            margin_top: 24
+        });
+
+        aboutBox.append(headerBox);
+        aboutBox.append(linkBox);
+        aboutBox.append(disclaimerLabel);
+
+        aboutGroup.add(aboutBox);
+        pageAbout.add(aboutGroup);
+
+        window.add(pageAbout);
     }
 }
