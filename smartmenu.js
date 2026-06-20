@@ -19,6 +19,7 @@ export class SmartMenu {
         this._smartMenu = null;
         this._smartMenuManager = null;
         this._smartMenuOpenTimeoutId = null;
+        this._cursorTimeoutId = null;
         this._cancellable = new Gio.Cancellable();
     }
 
@@ -81,9 +82,10 @@ export class SmartMenu {
         let grab = null;
 
         let applyCursor = (cursorName) => {
-            if (blankOverlay && typeof blankOverlay.set_cursor_type === 'function' && Clutter.CursorType?.[cursorName] !== undefined) {
+            // Check for GNOME 46+ cursor method, otherwise fallback to GNOME 45
+            if (blankOverlay?.set_cursor_type && Clutter.CursorType?.[cursorName] !== undefined) {
                 blankOverlay.set_cursor_type(Clutter.CursorType[cursorName]);
-            } else if (global.display && typeof global.display.set_cursor === 'function' && Meta.Cursor?.[cursorName] !== undefined) {
+            } else if (global.display?.set_cursor && Meta.Cursor?.[cursorName] !== undefined) {
                 global.display.set_cursor(Meta.Cursor[cursorName]);
             }
         };
@@ -118,11 +120,19 @@ export class SmartMenu {
             applyCursor('BLANK');
             grab = Main.pushModal(blankOverlay);
 
+            if (this._cursorTimeoutId) {
+                GLib.source_remove(this._cursorTimeoutId);
+                this._cursorTimeoutId = null;
+            }
+
             // Allow compositor a tiny moment to render the blank cursor
-            await new Promise(resolve => GLib.timeout_add(GLib.PRIORITY_DEFAULT, 50, () => {
-                resolve();
-                return GLib.SOURCE_REMOVE;
-            }));
+            await new Promise(resolve => {
+                this._cursorTimeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 50, () => {
+                    this._cursorTimeoutId = null;
+                    resolve();
+                    return GLib.SOURCE_REMOVE;
+                });
+            });
 
             let gotScreenshot = await this.ext._takeScreenshot(sx, sy, w, h, stream);
             stream.close(null);
@@ -316,6 +326,7 @@ export class SmartMenu {
 
         if (this._smartMenuOpenTimeoutId) {
             GLib.source_remove(this._smartMenuOpenTimeoutId);
+            this._smartMenuOpenTimeoutId = null;
         }
         this._smartMenuOpenTimeoutId = GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
             this._smartMenuOpenTimeoutId = null;
@@ -342,6 +353,10 @@ export class SmartMenu {
         if (this._smartMenuOpenTimeoutId) {
             GLib.source_remove(this._smartMenuOpenTimeoutId);
             this._smartMenuOpenTimeoutId = null;
+        }
+        if (this._cursorTimeoutId) {
+            GLib.source_remove(this._cursorTimeoutId);
+            this._cursorTimeoutId = null;
         }
         if (this._cancellable) {
             this._cancellable.cancel();

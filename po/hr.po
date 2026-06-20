@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-13 21:56+0200\n"
+"POT-Creation-Date: 2026-06-20 16:41+0200\n"
 "PO-Revision-Date: 2026-06-12 01:36+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,51 +18,59 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: extension.js:81
+#: extension.js:113
 #, fuzzy
 msgid "Snap Text Error"
 msgstr "Snap Text"
 
-#: extension.js:107
+#: extension.js:157
 msgid "No history yet"
 msgstr "Još nema povijesti"
 
-#: extension.js:150 extension.js:188
-msgid "Settings"
-msgstr "postavke"
+#: extension.js:186 prefs.js:352
+msgid "Auto-Translate Text"
+msgstr "Automatski prijevod teksta"
 
-#: extension.js:204
+#: extension.js:256
 #, fuzzy
 msgid "Text copied"
 msgstr "Tekst izdvojen"
 
-#: extension.js:366
+#: extension.js:407
 msgid "Translation Error"
 msgstr "Greška u prijevodu"
 
-#: extension.js:366
+#: extension.js:407
 msgid "Could not connect to Google Translate."
 msgstr "Nije moguće povezati se s Google prevoditeljem."
 
-#: extension.js:466
+#: extension.js:562
 msgid "Snap Text"
 msgstr "Snap Text"
 
-#: extension.js:466
+#: extension.js:562
 #, fuzzy
 msgid "No text found."
 msgstr "Nema teksta u odabiru."
 
-#: extension.js:482
+#: extension.js:578
 #, fuzzy
 msgid "Text extracted"
 msgstr "Tekst izdvojen"
 
-#: prefs.js:38
+#: prefs.js:49 prefs.js:92
+msgid "Disabled"
+msgstr "Onesposobljeno"
+
+#: prefs.js:69
+msgid "Press keys..."
+msgstr "Pritisnite tipke..."
+
+#: prefs.js:136
 msgid "General"
 msgstr "General"
 
-#: prefs.js:44
+#: prefs.js:142
 msgid ""
 "Instantly extract and copy text to your clipboard from anywhere on the "
 "screen."
@@ -70,106 +78,122 @@ msgstr ""
 "Trenutačno izdvojite i kopirajte tekst u međuspremnik s bilo kojeg mjesta na "
 "zaslonu."
 
-#: prefs.js:55
-msgid "Behavior & Shortcuts"
-msgstr "Ponašanje i prečaci"
+#: prefs.js:153
+msgid "System Tray & UI"
+msgstr ""
 
-#: prefs.js:59
+#: prefs.js:157
+msgid "Show Tray Icon"
+msgstr ""
+
+#: prefs.js:158
+msgid "Display the extension icon in the system top panel."
+msgstr ""
+
+#: prefs.js:171
 msgid "Show Extracted Text Notification"
 msgstr "Prikaži izdvojenu tekstualnu obavijest"
 
-#: prefs.js:60
+#: prefs.js:172
 msgid "Displays a system banner containing your copied text context."
 msgstr "Prikazuje banner sustava koji sadrži vaš kopirani tekstualni kontekst."
 
-#: prefs.js:74
+#: prefs.js:185
 msgid "Enable Extraction History"
 msgstr "Omogući povijest ekstrakcije"
 
-#: prefs.js:75
+#: prefs.js:186
 msgid "Keep a history of up to 15 recent extractions in the context menu."
 msgstr "Čuvajte povijest do 15 nedavnih ekstrakcija u kontekstnom izborniku."
 
-#: prefs.js:89
+#: prefs.js:201
 #, fuzzy
-msgid "Enable Keyboard Shortcut"
+msgid "Area Extraction"
+msgstr "Omogući povijest ekstrakcije"
+
+#: prefs.js:205
+#, fuzzy
+msgid "Enable Area Selection Shortcut"
 msgstr "Okidač tipkovničkih prečaca"
 
-#: prefs.js:90
-msgid "Allow triggering extraction via a keyboard shortcut."
-msgstr "Dopusti pokretanje ekstrakcije putem tipkovničkog prečaca."
+#: prefs.js:206
+msgid "Trigger crosshair to draw a box around text to extract."
+msgstr ""
 
-#: prefs.js:104
-msgid "Keyboard Shortcut Trigger"
-msgstr "Okidač tipkovničkih prečaca"
+#: prefs.js:220
+#, fuzzy
+msgid "Area Selection Shortcut"
+msgstr "Ponašanje i prečaci"
 
-#: prefs.js:105
+#: prefs.js:221
 msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
 msgstr ""
 "Kliknite za postavljanje prečaca. Pritisnite Esc za odustajanje, Backspace "
 "za onemogućavanje."
 
-#: prefs.js:113 prefs.js:167
-msgid "Disabled"
-msgstr "Onesposobljeno"
+#: prefs.js:229
+msgid "Smart Extraction"
+msgstr ""
 
-#: prefs.js:144
-msgid "Press keys..."
-msgstr "Pritisnite tipke..."
+#: prefs.js:230
+msgid ""
+"Smart extraction instantly reads text, parses links, and detects data "
+"directly beneath your cursor without needing to draw a box."
+msgstr ""
 
-#. GitHub repo links :
-#: prefs.js:202
+#: prefs.js:234
 #, fuzzy
-msgid "Buy me a coffee ☕"
-msgstr "Časti me kavom ☕"
+msgid "Enable Smart Extraction"
+msgstr "Omogući povijest ekstrakcije"
 
-#: prefs.js:203
+#: prefs.js:235
+msgid "Master toggle for pointer-based text extraction features."
+msgstr ""
+
+#: prefs.js:248
+msgid "Single-Click Smart Snap"
+msgstr ""
+
+#: prefs.js:249
+msgid ""
+"Extract text at the pointer location with a single click instead of dragging "
+"a box."
+msgstr ""
+
+#: prefs.js:264
 #, fuzzy
-msgid "Report a Bug 🐛"
-msgstr "Prijavite grešku 🐛"
+msgid "Smart Extraction Shortcut"
+msgstr "Omogući povijest ekstrakcije"
 
-#: prefs.js:204
-#, fuzzy
-msgid "Request a Feature 💡"
-msgstr "Zatražite značajku 🚀"
+#: prefs.js:265
+msgid "Key combination to trigger extraction exactly at pointer location."
+msgstr ""
 
-#: prefs.js:210
-msgid "Developer Details"
-msgstr "Pojedinosti o razvojnom programeru"
-
-#: prefs.js:212
-msgid "Author"
-msgstr "Autor"
-
-#: prefs.js:213
-msgid "Version"
-msgstr "Verzija"
-
-#: prefs.js:220
+#: prefs.js:277
 msgid "Advanced"
 msgstr "Napredno"
 
-#: prefs.js:225
+#: prefs.js:282
 msgid "QR Codes"
 msgstr "QR kodovi"
 
-#: prefs.js:229
+#: prefs.js:286
 msgid "Auto-Open URLs"
 msgstr "Automatsko otvaranje URL-ova"
 
-#: prefs.js:230
+#: prefs.js:287
 msgid "Automatically open HTTP/HTTPS links detected in QR codes."
 msgstr "Automatski otvori HTTP/HTTPS veze otkrivene u QR kodovima."
 
-#: prefs.js:246
+#: prefs.js:304
 msgid "Translation (Experimental)"
 msgstr "Prijevod (eksperimentalno)"
 
-#: prefs.js:277
+#: prefs.js:331
 msgid "Privacy warning"
 msgstr "Upozorenje o privatnosti"
 
-#: prefs.js:284
+#: prefs.js:337
 msgid ""
 "Auto-Translate sends extracted text to Google Translate. Privacy cannot be "
 "guaranteed when enabled."
@@ -177,35 +201,71 @@ msgstr ""
 "Automatski prevoditelj šalje izdvojeni tekst Google prevoditelju. Privatnost "
 "se ne može jamčiti kada je omogućena."
 
-#: prefs.js:300
-msgid "Auto-Translate Text"
-msgstr "Automatski prijevod teksta"
-
-#: prefs.js:301
+#: prefs.js:353
 msgid "Automatically translate extracted text to your target language."
 msgstr "Automatski prevedite izdvojeni tekst na ciljni jezik."
 
-#: prefs.js:315
+#: prefs.js:368
 msgid "Target Language Code"
 msgstr "Kod ciljnog jezika"
 
-#: prefs.js:316
+#: prefs.js:369
 msgid "e.g., en, fr, es, zh. Leave empty to use your system default language."
 msgstr ""
 "npr. en, fr, es, zh. Ostavite prazno za korištenje zadanog jezika vašeg "
 "sustava."
 
-#: prefs.js:333
+#: prefs.js:388
 msgid "Logging"
 msgstr "Sječa drva"
 
-#: prefs.js:337
+#: prefs.js:392
 msgid "Enable Debug Logging"
 msgstr "Omogući bilježenje otklanjanja pogrešaka"
 
-#: prefs.js:338
+#: prefs.js:393
 msgid "Outputs detailed OCR and process logs to the system journal."
 msgstr "Ispisuje detaljan OCR i zapisnike procesa u dnevnik sustava."
+
+#: prefs.js:414
+msgid "About"
+msgstr ""
+
+#: prefs.js:449
+#, fuzzy, javascript-format
+msgid "Version %s"
+msgstr "Verzija"
+
+#: prefs.js:453
+msgid "by Christian Wittenberg"
+msgstr ""
+
+#: prefs.js:470
+#, fuzzy
+msgid "Buy me a coffee ☕"
+msgstr "Časti me kavom ☕"
+
+#: prefs.js:471
+#, fuzzy
+msgid "Report a Bug 🐞"
+msgstr "Prijavite grešku 🐛"
+
+#: prefs.js:472
+#, fuzzy
+msgid "Request a Feature 💡"
+msgstr "Zatražite značajku 🚀"
+
+#: prefs.js:476
+msgid ""
+"<b>Disclaimer</b>\n"
+"Optical Character Recognition (OCR) and smart data extraction are inherently "
+"imperfect. Results from this extension may be inaccurate, incomplete, "
+"incorrectly formatted, or affected by screen artifacts and misrecognized "
+"text. Always verify critical information, such as financial numbers, "
+"addresses, names, dates, and other sensitive data, manually. The author is "
+"not responsible for any consequences resulting from the use of incorrect or "
+"incomplete data extracted by this tool. Use this extension at your own risk."
+msgstr ""
 
 #: dependencies.js:97
 #, fuzzy, javascript-format
@@ -254,6 +314,74 @@ msgstr ""
 #: dependencies.js:203
 msgid "Dismiss"
 msgstr "Odbaciti"
+
+#: smartextractor.js:24
+msgid "Copy Clean Text"
+msgstr ""
+
+#: smartextractor.js:113
+msgid "Copy Link"
+msgstr ""
+
+#: smartextractor.js:129
+msgid "Copy Email"
+msgstr ""
+
+#: smartextractor.js:147
+msgid "Copy IPv4"
+msgstr ""
+
+#: smartextractor.js:183
+msgid "Copy IPv6"
+msgstr ""
+
+#: smartextractor.js:215
+msgid "Copy MAC Address"
+msgstr ""
+
+#: smartextractor.js:229 smartextractor.js:325
+msgid "Copy Number"
+msgstr ""
+
+#: smartextractor.js:241
+msgid "Copy UUID"
+msgstr ""
+
+#: smartextractor.js:253
+msgid "Copy Hex Color"
+msgstr ""
+
+#: smartextractor.js:266
+msgid "Copy Date"
+msgstr ""
+
+#: smartextractor.js:278
+msgid "Copy Phone"
+msgstr ""
+
+#: smartmenu.js:219
+#, javascript-format
+msgid "Copy text (%s)"
+msgstr ""
+
+#: smartmenu.js:227
+msgid "Extracted Data:"
+msgstr ""
+
+#~ msgid "Settings"
+#~ msgstr "postavke"
+
+#~ msgid "Allow triggering extraction via a keyboard shortcut."
+#~ msgstr "Dopusti pokretanje ekstrakcije putem tipkovničkog prečaca."
+
+#~ msgid "Keyboard Shortcut Trigger"
+#~ msgstr "Okidač tipkovničkih prečaca"
+
+#~ msgid "Developer Details"
+#~ msgstr "Pojedinosti o razvojnom programeru"
+
+#~ msgid "Author"
+#~ msgstr "Autor"
 
 #~ msgid "Snap Text Configuration"
 #~ msgstr "Snap Text Configuration"

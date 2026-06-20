@@ -120,12 +120,14 @@ export const SelectionUI = GObject.registerClass(
         }
 
         _applyCursor(cursorName) {
-            if (typeof this.set_cursor_type === 'function' && Clutter.CursorType?.[cursorName] !== undefined) {
+            // Check for GNOME 46+ cursor method
+            if (this.set_cursor_type && Clutter.CursorType?.[cursorName] !== undefined) {
                 this.set_cursor_type(Clutter.CursorType[cursorName]);
                 return true;
             }
 
-            if (global.display && typeof global.display.set_cursor === 'function' && Meta.Cursor?.[cursorName] !== undefined) {
+            // Fallback for GNOME 45
+            if (global.display?.set_cursor && Meta.Cursor?.[cursorName] !== undefined) {
                 global.display.set_cursor(Meta.Cursor[cursorName]);
                 return true;
             }

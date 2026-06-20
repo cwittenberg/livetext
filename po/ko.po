@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-13 21:56+0200\n"
+"POT-Creation-Date: 2026-06-20 16:41+0200\n"
 "PO-Revision-Date: 2026-06-12 01:36+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,156 +17,180 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: extension.js:81
+#: extension.js:113
 #, fuzzy
 msgid "Snap Text Error"
 msgstr "텍스트 스냅"
 
-#: extension.js:107
+#: extension.js:157
 msgid "No history yet"
 msgstr "아직 기록이 없습니다."
 
-#: extension.js:150 extension.js:188
-msgid "Settings"
-msgstr "설정"
+#: extension.js:186 prefs.js:352
+msgid "Auto-Translate Text"
+msgstr "텍스트 자동 번역"
 
-#: extension.js:204
+#: extension.js:256
 #, fuzzy
 msgid "Text copied"
 msgstr "추출된 텍스트"
 
-#: extension.js:366
+#: extension.js:407
 msgid "Translation Error"
 msgstr "번역 오류"
 
-#: extension.js:366
+#: extension.js:407
 msgid "Could not connect to Google Translate."
 msgstr "Google 번역에 연결할 수 없습니다."
 
-#: extension.js:466
+#: extension.js:562
 msgid "Snap Text"
 msgstr "텍스트 스냅"
 
-#: extension.js:466
+#: extension.js:562
 #, fuzzy
 msgid "No text found."
 msgstr "선택 항목에 텍스트가 없습니다."
 
-#: extension.js:482
+#: extension.js:578
 #, fuzzy
 msgid "Text extracted"
 msgstr "추출된 텍스트"
 
-#: prefs.js:38
+#: prefs.js:49 prefs.js:92
+msgid "Disabled"
+msgstr "장애가 있는"
+
+#: prefs.js:69
+msgid "Press keys..."
+msgstr "키를 누르세요..."
+
+#: prefs.js:136
 msgid "General"
 msgstr "일반적인"
 
-#: prefs.js:44
+#: prefs.js:142
 msgid ""
 "Instantly extract and copy text to your clipboard from anywhere on the "
 "screen."
 msgstr "화면 어디에서나 텍스트를 즉시 추출하고 클립보드에 복사할 수 있습니다."
 
-#: prefs.js:55
-msgid "Behavior & Shortcuts"
-msgstr "동작 및 단축키"
+#: prefs.js:153
+msgid "System Tray & UI"
+msgstr ""
 
-#: prefs.js:59
+#: prefs.js:157
+msgid "Show Tray Icon"
+msgstr ""
+
+#: prefs.js:158
+msgid "Display the extension icon in the system top panel."
+msgstr ""
+
+#: prefs.js:171
 msgid "Show Extracted Text Notification"
 msgstr "추출된 문자 알림 표시"
 
-#: prefs.js:60
+#: prefs.js:172
 msgid "Displays a system banner containing your copied text context."
 msgstr "복사한 텍스트 컨텍스트가 포함된 시스템 배너를 표시합니다."
 
-#: prefs.js:74
+#: prefs.js:185
 msgid "Enable Extraction History"
 msgstr "추출 기록 활성화"
 
-#: prefs.js:75
+#: prefs.js:186
 msgid "Keep a history of up to 15 recent extractions in the context menu."
 msgstr "상황에 맞는 메뉴에서 최대 15개의 최근 추출 기록을 유지하세요."
 
-#: prefs.js:89
+#: prefs.js:201
 #, fuzzy
-msgid "Enable Keyboard Shortcut"
+msgid "Area Extraction"
+msgstr "추출 기록 활성화"
+
+#: prefs.js:205
+#, fuzzy
+msgid "Enable Area Selection Shortcut"
 msgstr "키보드 단축키 트리거"
 
-#: prefs.js:90
-msgid "Allow triggering extraction via a keyboard shortcut."
-msgstr "키보드 단축키를 통해 추출 트리거를 허용합니다."
+#: prefs.js:206
+msgid "Trigger crosshair to draw a box around text to extract."
+msgstr ""
 
-#: prefs.js:104
-msgid "Keyboard Shortcut Trigger"
-msgstr "키보드 단축키 트리거"
+#: prefs.js:220
+#, fuzzy
+msgid "Area Selection Shortcut"
+msgstr "동작 및 단축키"
 
-#: prefs.js:105
+#: prefs.js:221
 msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
 msgstr ""
 "바로가기를 설정하려면 클릭하세요. 취소하려면 Esc를 누르고, 비활성화하려면 백"
 "스페이스를 누르세요."
 
-#: prefs.js:113 prefs.js:167
-msgid "Disabled"
-msgstr "장애가 있는"
+#: prefs.js:229
+msgid "Smart Extraction"
+msgstr ""
 
-#: prefs.js:144
-msgid "Press keys..."
-msgstr "키를 누르세요..."
+#: prefs.js:230
+msgid ""
+"Smart extraction instantly reads text, parses links, and detects data "
+"directly beneath your cursor without needing to draw a box."
+msgstr ""
 
-#. GitHub repo links :
-#: prefs.js:202
+#: prefs.js:234
 #, fuzzy
-msgid "Buy me a coffee ☕"
-msgstr "커피 사주세요 찻잔"
+msgid "Enable Smart Extraction"
+msgstr "추출 기록 활성화"
 
-#: prefs.js:203
+#: prefs.js:235
+msgid "Master toggle for pointer-based text extraction features."
+msgstr ""
+
+#: prefs.js:248
+msgid "Single-Click Smart Snap"
+msgstr ""
+
+#: prefs.js:249
+msgid ""
+"Extract text at the pointer location with a single click instead of dragging "
+"a box."
+msgstr ""
+
+#: prefs.js:264
 #, fuzzy
-msgid "Report a Bug 🐛"
-msgstr "버그 신고 🐛"
+msgid "Smart Extraction Shortcut"
+msgstr "추출 기록 활성화"
 
-#: prefs.js:204
-#, fuzzy
-msgid "Request a Feature 💡"
-msgstr "기능 요청 🚀"
+#: prefs.js:265
+msgid "Key combination to trigger extraction exactly at pointer location."
+msgstr ""
 
-#: prefs.js:210
-msgid "Developer Details"
-msgstr "개발자 세부정보"
-
-#: prefs.js:212
-msgid "Author"
-msgstr "작가"
-
-#: prefs.js:213
-msgid "Version"
-msgstr "버전"
-
-#: prefs.js:220
+#: prefs.js:277
 msgid "Advanced"
 msgstr "고급의"
 
-#: prefs.js:225
+#: prefs.js:282
 msgid "QR Codes"
 msgstr "QR 코드"
 
-#: prefs.js:229
+#: prefs.js:286
 msgid "Auto-Open URLs"
 msgstr "자동 열기 URL"
 
-#: prefs.js:230
+#: prefs.js:287
 msgid "Automatically open HTTP/HTTPS links detected in QR codes."
 msgstr "QR 코드에서 감지된 HTTP/HTTPS 링크를 자동으로 엽니다."
 
-#: prefs.js:246
+#: prefs.js:304
 msgid "Translation (Experimental)"
 msgstr "번역(실험적)"
 
-#: prefs.js:277
+#: prefs.js:331
 msgid "Privacy warning"
 msgstr "개인 정보 보호 경고"
 
-#: prefs.js:284
+#: prefs.js:337
 msgid ""
 "Auto-Translate sends extracted text to Google Translate. Privacy cannot be "
 "guaranteed when enabled."
@@ -174,33 +198,69 @@ msgstr ""
 "자동 번역은 추출된 텍스트를 Google 번역으로 보냅니다. 활성화하면 개인정보 보"
 "호가 보장되지 않습니다."
 
-#: prefs.js:300
-msgid "Auto-Translate Text"
-msgstr "텍스트 자동 번역"
-
-#: prefs.js:301
+#: prefs.js:353
 msgid "Automatically translate extracted text to your target language."
 msgstr "추출된 텍스트를 대상 언어로 자동 번역합니다."
 
-#: prefs.js:315
+#: prefs.js:368
 msgid "Target Language Code"
 msgstr "대상 언어 코드"
 
-#: prefs.js:316
+#: prefs.js:369
 msgid "e.g., en, fr, es, zh. Leave empty to use your system default language."
 msgstr "예: en, fr, es, zh. 시스템 기본 언어를 사용하려면 비워 두세요."
 
-#: prefs.js:333
+#: prefs.js:388
 msgid "Logging"
 msgstr "벌채 반출"
 
-#: prefs.js:337
+#: prefs.js:392
 msgid "Enable Debug Logging"
 msgstr "디버그 로깅 활성화"
 
-#: prefs.js:338
+#: prefs.js:393
 msgid "Outputs detailed OCR and process logs to the system journal."
 msgstr "자세한 OCR 및 프로세스 로그를 시스템 저널에 출력합니다."
+
+#: prefs.js:414
+msgid "About"
+msgstr ""
+
+#: prefs.js:449
+#, fuzzy, javascript-format
+msgid "Version %s"
+msgstr "버전"
+
+#: prefs.js:453
+msgid "by Christian Wittenberg"
+msgstr ""
+
+#: prefs.js:470
+#, fuzzy
+msgid "Buy me a coffee ☕"
+msgstr "커피 사주세요 찻잔"
+
+#: prefs.js:471
+#, fuzzy
+msgid "Report a Bug 🐞"
+msgstr "버그 신고 🐛"
+
+#: prefs.js:472
+#, fuzzy
+msgid "Request a Feature 💡"
+msgstr "기능 요청 🚀"
+
+#: prefs.js:476
+msgid ""
+"<b>Disclaimer</b>\n"
+"Optical Character Recognition (OCR) and smart data extraction are inherently "
+"imperfect. Results from this extension may be inaccurate, incomplete, "
+"incorrectly formatted, or affected by screen artifacts and misrecognized "
+"text. Always verify critical information, such as financial numbers, "
+"addresses, names, dates, and other sensitive data, manually. The author is "
+"not responsible for any consequences resulting from the use of incorrect or "
+"incomplete data extracted by this tool. Use this extension at your own risk."
+msgstr ""
 
 #: dependencies.js:97
 #, fuzzy, javascript-format
@@ -248,6 +308,74 @@ msgstr ""
 #: dependencies.js:203
 msgid "Dismiss"
 msgstr "해고하다"
+
+#: smartextractor.js:24
+msgid "Copy Clean Text"
+msgstr ""
+
+#: smartextractor.js:113
+msgid "Copy Link"
+msgstr ""
+
+#: smartextractor.js:129
+msgid "Copy Email"
+msgstr ""
+
+#: smartextractor.js:147
+msgid "Copy IPv4"
+msgstr ""
+
+#: smartextractor.js:183
+msgid "Copy IPv6"
+msgstr ""
+
+#: smartextractor.js:215
+msgid "Copy MAC Address"
+msgstr ""
+
+#: smartextractor.js:229 smartextractor.js:325
+msgid "Copy Number"
+msgstr ""
+
+#: smartextractor.js:241
+msgid "Copy UUID"
+msgstr ""
+
+#: smartextractor.js:253
+msgid "Copy Hex Color"
+msgstr ""
+
+#: smartextractor.js:266
+msgid "Copy Date"
+msgstr ""
+
+#: smartextractor.js:278
+msgid "Copy Phone"
+msgstr ""
+
+#: smartmenu.js:219
+#, javascript-format
+msgid "Copy text (%s)"
+msgstr ""
+
+#: smartmenu.js:227
+msgid "Extracted Data:"
+msgstr ""
+
+#~ msgid "Settings"
+#~ msgstr "설정"
+
+#~ msgid "Allow triggering extraction via a keyboard shortcut."
+#~ msgstr "키보드 단축키를 통해 추출 트리거를 허용합니다."
+
+#~ msgid "Keyboard Shortcut Trigger"
+#~ msgstr "키보드 단축키 트리거"
+
+#~ msgid "Developer Details"
+#~ msgstr "개발자 세부정보"
+
+#~ msgid "Author"
+#~ msgstr "작가"
 
 #~ msgid "Snap Text Configuration"
 #~ msgstr "스냅 텍스트 구성"

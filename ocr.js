@@ -617,11 +617,19 @@ export class OcrProcessor {
             let negatedImagePath = imagePath.replace('.png', '-negated.png');
             let res3 = null;
             try {
-                // Duplicate image for the negated pass
-                let cp = Gio.Subprocess.new(['cp', imagePath, negatedImagePath], Gio.SubprocessFlags.NONE);
-                this._activeProcesses.add(cp);
-                await this._waitForProcess(cp);
-                this._activeProcesses.delete(cp);
+                // Use native Gio file copying instead of spawning a 'cp' subprocess
+                let sourceFile = Gio.File.new_for_path(imagePath);
+                let destFile = Gio.File.new_for_path(negatedImagePath);
+                await new Promise((resolve, reject) => {
+                    sourceFile.copy_async(destFile, Gio.FileCopyFlags.NONE, GLib.PRIORITY_DEFAULT, this._cancellable, null, (source, res) => {
+                        try {
+                            source.copy_finish(res);
+                            resolve();
+                        } catch (e) {
+                            reject(e);
+                        }
+                    });
+                });
 
                 // Negate the duplicated image using mogrify
                 let mogrifyNegate = Gio.Subprocess.new(['mogrify', '-negate', negatedImagePath], Gio.SubprocessFlags.NONE);

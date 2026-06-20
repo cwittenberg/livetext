@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-13 21:56+0200\n"
+"POT-Creation-Date: 2026-06-20 16:41+0200\n"
 "PO-Revision-Date: 2026-06-12 01:36+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,157 +17,181 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: extension.js:81
+#: extension.js:113
 #, fuzzy
 msgid "Snap Text Error"
 msgstr "Prichytiť text"
 
-#: extension.js:107
+#: extension.js:157
 msgid "No history yet"
 msgstr "Zatiaľ bez histórie"
 
-#: extension.js:150 extension.js:188
-msgid "Settings"
-msgstr "Nastavenia"
+#: extension.js:186 prefs.js:352
+msgid "Auto-Translate Text"
+msgstr "Automatický preklad textu"
 
-#: extension.js:204
+#: extension.js:256
 #, fuzzy
 msgid "Text copied"
 msgstr "Text bol extrahovaný"
 
-#: extension.js:366
+#: extension.js:407
 msgid "Translation Error"
 msgstr "Chyba prekladu"
 
-#: extension.js:366
+#: extension.js:407
 msgid "Could not connect to Google Translate."
 msgstr "Nepodarilo sa pripojiť k Prekladaču Google."
 
-#: extension.js:466
+#: extension.js:562
 msgid "Snap Text"
 msgstr "Prichytiť text"
 
-#: extension.js:466
+#: extension.js:562
 #, fuzzy
 msgid "No text found."
 msgstr "Vo výbere sa nenašiel žiadny text."
 
-#: extension.js:482
+#: extension.js:578
 #, fuzzy
 msgid "Text extracted"
 msgstr "Text bol extrahovaný"
 
-#: prefs.js:38
+#: prefs.js:49 prefs.js:92
+msgid "Disabled"
+msgstr "Zakázané"
+
+#: prefs.js:69
+msgid "Press keys..."
+msgstr "Stlačte klávesy..."
+
+#: prefs.js:136
 msgid "General"
 msgstr "generál"
 
-#: prefs.js:44
+#: prefs.js:142
 msgid ""
 "Instantly extract and copy text to your clipboard from anywhere on the "
 "screen."
 msgstr ""
 "Okamžite extrahujte a skopírujte text do schránky odkiaľkoľvek na obrazovke."
 
-#: prefs.js:55
-msgid "Behavior & Shortcuts"
-msgstr "Správanie a skratky"
+#: prefs.js:153
+msgid "System Tray & UI"
+msgstr ""
 
-#: prefs.js:59
+#: prefs.js:157
+msgid "Show Tray Icon"
+msgstr ""
+
+#: prefs.js:158
+msgid "Display the extension icon in the system top panel."
+msgstr ""
+
+#: prefs.js:171
 msgid "Show Extracted Text Notification"
 msgstr "Zobraziť upozornenie na extrahovaný text"
 
-#: prefs.js:60
+#: prefs.js:172
 msgid "Displays a system banner containing your copied text context."
 msgstr "Zobrazí systémový banner obsahujúci váš skopírovaný textový kontext."
 
-#: prefs.js:74
+#: prefs.js:185
 msgid "Enable Extraction History"
 msgstr "Povoliť históriu extrakcie"
 
-#: prefs.js:75
+#: prefs.js:186
 msgid "Keep a history of up to 15 recent extractions in the context menu."
 msgstr "V kontextovej ponuke uchovávajte históriu až 15 nedávnych extrakcií."
 
-#: prefs.js:89
+#: prefs.js:201
 #, fuzzy
-msgid "Enable Keyboard Shortcut"
+msgid "Area Extraction"
+msgstr "Povoliť históriu extrakcie"
+
+#: prefs.js:205
+#, fuzzy
+msgid "Enable Area Selection Shortcut"
 msgstr "Spúšťač klávesových skratiek"
 
-#: prefs.js:90
-msgid "Allow triggering extraction via a keyboard shortcut."
-msgstr "Povoliť spustenie extrakcie pomocou klávesovej skratky."
+#: prefs.js:206
+msgid "Trigger crosshair to draw a box around text to extract."
+msgstr ""
 
-#: prefs.js:104
-msgid "Keyboard Shortcut Trigger"
-msgstr "Spúšťač klávesových skratiek"
+#: prefs.js:220
+#, fuzzy
+msgid "Area Selection Shortcut"
+msgstr "Správanie a skratky"
 
-#: prefs.js:105
+#: prefs.js:221
 msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
 msgstr ""
 "Kliknutím nastavíte skratku. Stlačte Esc pre zrušenie, Backspace pre "
 "deaktiváciu."
 
-#: prefs.js:113 prefs.js:167
-msgid "Disabled"
-msgstr "Zakázané"
+#: prefs.js:229
+msgid "Smart Extraction"
+msgstr ""
 
-#: prefs.js:144
-msgid "Press keys..."
-msgstr "Stlačte klávesy..."
+#: prefs.js:230
+msgid ""
+"Smart extraction instantly reads text, parses links, and detects data "
+"directly beneath your cursor without needing to draw a box."
+msgstr ""
 
-#. GitHub repo links :
-#: prefs.js:202
+#: prefs.js:234
 #, fuzzy
-msgid "Buy me a coffee ☕"
-msgstr "Kúp mi kávu ☕"
+msgid "Enable Smart Extraction"
+msgstr "Povoliť históriu extrakcie"
 
-#: prefs.js:203
+#: prefs.js:235
+msgid "Master toggle for pointer-based text extraction features."
+msgstr ""
+
+#: prefs.js:248
+msgid "Single-Click Smart Snap"
+msgstr ""
+
+#: prefs.js:249
+msgid ""
+"Extract text at the pointer location with a single click instead of dragging "
+"a box."
+msgstr ""
+
+#: prefs.js:264
 #, fuzzy
-msgid "Report a Bug 🐛"
-msgstr "Nahlás chybu 🐛"
+msgid "Smart Extraction Shortcut"
+msgstr "Povoliť históriu extrakcie"
 
-#: prefs.js:204
-#, fuzzy
-msgid "Request a Feature 💡"
-msgstr "Požiadajte o funkciu 🚀"
+#: prefs.js:265
+msgid "Key combination to trigger extraction exactly at pointer location."
+msgstr ""
 
-#: prefs.js:210
-msgid "Developer Details"
-msgstr "Podrobnosti vývojára"
-
-#: prefs.js:212
-msgid "Author"
-msgstr "Autor"
-
-#: prefs.js:213
-msgid "Version"
-msgstr "Verzia"
-
-#: prefs.js:220
+#: prefs.js:277
 msgid "Advanced"
 msgstr "Pokročilé"
 
-#: prefs.js:225
+#: prefs.js:282
 msgid "QR Codes"
 msgstr "QR kódy"
 
-#: prefs.js:229
+#: prefs.js:286
 msgid "Auto-Open URLs"
 msgstr "Automaticky otvárať adresy URL"
 
-#: prefs.js:230
+#: prefs.js:287
 msgid "Automatically open HTTP/HTTPS links detected in QR codes."
 msgstr "Automaticky otvárať odkazy HTTP/HTTPS zistené v kódoch QR."
 
-#: prefs.js:246
+#: prefs.js:304
 msgid "Translation (Experimental)"
 msgstr "Preklad (experimentálny)"
 
-#: prefs.js:277
+#: prefs.js:331
 msgid "Privacy warning"
 msgstr "Upozornenie na ochranu osobných údajov"
 
-#: prefs.js:284
+#: prefs.js:337
 msgid ""
 "Auto-Translate sends extracted text to Google Translate. Privacy cannot be "
 "guaranteed when enabled."
@@ -175,35 +199,71 @@ msgstr ""
 "Automatický preklad odošle extrahovaný text do Prekladača Google. Súkromie "
 "nie je možné zaručiť, ak je povolené."
 
-#: prefs.js:300
-msgid "Auto-Translate Text"
-msgstr "Automatický preklad textu"
-
-#: prefs.js:301
+#: prefs.js:353
 msgid "Automatically translate extracted text to your target language."
 msgstr "Automaticky preložte extrahovaný text do svojho cieľového jazyka."
 
-#: prefs.js:315
+#: prefs.js:368
 msgid "Target Language Code"
 msgstr "Kód cieľového jazyka"
 
-#: prefs.js:316
+#: prefs.js:369
 msgid "e.g., en, fr, es, zh. Leave empty to use your system default language."
 msgstr ""
 "napr. en, fr, es, zh. Ak chcete použiť predvolený jazyk systému, nechajte "
 "prázdne."
 
-#: prefs.js:333
+#: prefs.js:388
 msgid "Logging"
 msgstr "Ťažba dreva"
 
-#: prefs.js:337
+#: prefs.js:392
 msgid "Enable Debug Logging"
 msgstr "Povoliť protokolovanie ladenia"
 
-#: prefs.js:338
+#: prefs.js:393
 msgid "Outputs detailed OCR and process logs to the system journal."
 msgstr "Vypíše podrobné OCR a protokoly procesov do systémového žurnálu."
+
+#: prefs.js:414
+msgid "About"
+msgstr ""
+
+#: prefs.js:449
+#, fuzzy, javascript-format
+msgid "Version %s"
+msgstr "Verzia"
+
+#: prefs.js:453
+msgid "by Christian Wittenberg"
+msgstr ""
+
+#: prefs.js:470
+#, fuzzy
+msgid "Buy me a coffee ☕"
+msgstr "Kúp mi kávu ☕"
+
+#: prefs.js:471
+#, fuzzy
+msgid "Report a Bug 🐞"
+msgstr "Nahlás chybu 🐛"
+
+#: prefs.js:472
+#, fuzzy
+msgid "Request a Feature 💡"
+msgstr "Požiadajte o funkciu 🚀"
+
+#: prefs.js:476
+msgid ""
+"<b>Disclaimer</b>\n"
+"Optical Character Recognition (OCR) and smart data extraction are inherently "
+"imperfect. Results from this extension may be inaccurate, incomplete, "
+"incorrectly formatted, or affected by screen artifacts and misrecognized "
+"text. Always verify critical information, such as financial numbers, "
+"addresses, names, dates, and other sensitive data, manually. The author is "
+"not responsible for any consequences resulting from the use of incorrect or "
+"incomplete data extracted by this tool. Use this extension at your own risk."
+msgstr ""
 
 #: dependencies.js:97
 #, fuzzy, javascript-format
@@ -251,6 +311,74 @@ msgstr ""
 #: dependencies.js:203
 msgid "Dismiss"
 msgstr "Odmietnuť"
+
+#: smartextractor.js:24
+msgid "Copy Clean Text"
+msgstr ""
+
+#: smartextractor.js:113
+msgid "Copy Link"
+msgstr ""
+
+#: smartextractor.js:129
+msgid "Copy Email"
+msgstr ""
+
+#: smartextractor.js:147
+msgid "Copy IPv4"
+msgstr ""
+
+#: smartextractor.js:183
+msgid "Copy IPv6"
+msgstr ""
+
+#: smartextractor.js:215
+msgid "Copy MAC Address"
+msgstr ""
+
+#: smartextractor.js:229 smartextractor.js:325
+msgid "Copy Number"
+msgstr ""
+
+#: smartextractor.js:241
+msgid "Copy UUID"
+msgstr ""
+
+#: smartextractor.js:253
+msgid "Copy Hex Color"
+msgstr ""
+
+#: smartextractor.js:266
+msgid "Copy Date"
+msgstr ""
+
+#: smartextractor.js:278
+msgid "Copy Phone"
+msgstr ""
+
+#: smartmenu.js:219
+#, javascript-format
+msgid "Copy text (%s)"
+msgstr ""
+
+#: smartmenu.js:227
+msgid "Extracted Data:"
+msgstr ""
+
+#~ msgid "Settings"
+#~ msgstr "Nastavenia"
+
+#~ msgid "Allow triggering extraction via a keyboard shortcut."
+#~ msgstr "Povoliť spustenie extrakcie pomocou klávesovej skratky."
+
+#~ msgid "Keyboard Shortcut Trigger"
+#~ msgstr "Spúšťač klávesových skratiek"
+
+#~ msgid "Developer Details"
+#~ msgstr "Podrobnosti vývojára"
+
+#~ msgid "Author"
+#~ msgstr "Autor"
 
 #~ msgid "Snap Text Configuration"
 #~ msgstr "Konfigurácia Snap Text"

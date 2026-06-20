@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-13 21:56+0200\n"
+"POT-Creation-Date: 2026-06-20 16:41+0200\n"
 "PO-Revision-Date: 2026-06-12 01:36+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,51 +18,59 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: extension.js:81
+#: extension.js:113
 #, fuzzy
 msgid "Snap Text Error"
 msgstr "Snap Text"
 
-#: extension.js:107
+#: extension.js:157
 msgid "No history yet"
 msgstr "No history yet"
 
-#: extension.js:150 extension.js:188
-msgid "Settings"
-msgstr "Settings"
+#: extension.js:186 prefs.js:352
+msgid "Auto-Translate Text"
+msgstr "Auto-Translate Text"
 
-#: extension.js:204
+#: extension.js:256
 #, fuzzy
 msgid "Text copied"
 msgstr "Text Extracted"
 
-#: extension.js:366
+#: extension.js:407
 msgid "Translation Error"
 msgstr "Translation Error"
 
-#: extension.js:366
+#: extension.js:407
 msgid "Could not connect to Google Translate."
 msgstr "Could not connect to Google Translate."
 
-#: extension.js:466
+#: extension.js:562
 msgid "Snap Text"
 msgstr "Snap Text"
 
-#: extension.js:466
+#: extension.js:562
 #, fuzzy
 msgid "No text found."
 msgstr "No text found in selection."
 
-#: extension.js:482
+#: extension.js:578
 #, fuzzy
 msgid "Text extracted"
 msgstr "Text Extracted"
 
-#: prefs.js:38
+#: prefs.js:49 prefs.js:92
+msgid "Disabled"
+msgstr "Disabled"
+
+#: prefs.js:69
+msgid "Press keys..."
+msgstr "Press keys..."
+
+#: prefs.js:136
 msgid "General"
 msgstr "General"
 
-#: prefs.js:44
+#: prefs.js:142
 msgid ""
 "Instantly extract and copy text to your clipboard from anywhere on the "
 "screen."
@@ -70,138 +78,190 @@ msgstr ""
 "Instantly extract and copy text to your clipboard from anywhere on the "
 "screen."
 
-#: prefs.js:55
-msgid "Behavior & Shortcuts"
-msgstr "Behavior & Shortcuts"
+#: prefs.js:153
+msgid "System Tray & UI"
+msgstr ""
 
-#: prefs.js:59
+#: prefs.js:157
+msgid "Show Tray Icon"
+msgstr ""
+
+#: prefs.js:158
+msgid "Display the extension icon in the system top panel."
+msgstr ""
+
+#: prefs.js:171
 msgid "Show Extracted Text Notification"
 msgstr "Show Extracted Text Notification"
 
-#: prefs.js:60
+#: prefs.js:172
 msgid "Displays a system banner containing your copied text context."
 msgstr "Displays a system banner containing your copied text context."
 
-#: prefs.js:74
+#: prefs.js:185
 msgid "Enable Extraction History"
 msgstr "Enable Extraction History"
 
-#: prefs.js:75
+#: prefs.js:186
 msgid "Keep a history of up to 15 recent extractions in the context menu."
 msgstr "Keep a history of up to 15 recent extractions in the context menu."
 
-#: prefs.js:89
+#: prefs.js:201
 #, fuzzy
-msgid "Enable Keyboard Shortcut"
+msgid "Area Extraction"
+msgstr "Enable Extraction History"
+
+#: prefs.js:205
+#, fuzzy
+msgid "Enable Area Selection Shortcut"
 msgstr "Keyboard Shortcut Trigger"
 
-#: prefs.js:90
-msgid "Allow triggering extraction via a keyboard shortcut."
-msgstr "Allow triggering extraction via a keyboard shortcut."
+#: prefs.js:206
+msgid "Trigger crosshair to draw a box around text to extract."
+msgstr ""
 
-#: prefs.js:104
-msgid "Keyboard Shortcut Trigger"
-msgstr "Keyboard Shortcut Trigger"
+#: prefs.js:220
+#, fuzzy
+msgid "Area Selection Shortcut"
+msgstr "Behavior & Shortcuts"
 
-#: prefs.js:105
+#: prefs.js:221
 msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
 msgstr "Click to set shortcut. Press Esc to cancel, Backspace to disable."
 
-#: prefs.js:113 prefs.js:167
-msgid "Disabled"
-msgstr "Disabled"
+#: prefs.js:229
+msgid "Smart Extraction"
+msgstr ""
 
-#: prefs.js:144
-msgid "Press keys..."
-msgstr "Press keys..."
+#: prefs.js:230
+msgid ""
+"Smart extraction instantly reads text, parses links, and detects data "
+"directly beneath your cursor without needing to draw a box."
+msgstr ""
 
-#. GitHub repo links :
-#: prefs.js:202
+#: prefs.js:234
+#, fuzzy
+msgid "Enable Smart Extraction"
+msgstr "Enable Extraction History"
+
+#: prefs.js:235
+msgid "Master toggle for pointer-based text extraction features."
+msgstr ""
+
+#: prefs.js:248
+msgid "Single-Click Smart Snap"
+msgstr ""
+
+#: prefs.js:249
+msgid ""
+"Extract text at the pointer location with a single click instead of dragging "
+"a box."
+msgstr ""
+
+#: prefs.js:264
+#, fuzzy
+msgid "Smart Extraction Shortcut"
+msgstr "Enable Extraction History"
+
+#: prefs.js:265
+msgid "Key combination to trigger extraction exactly at pointer location."
+msgstr ""
+
+#: prefs.js:277
+msgid "Advanced"
+msgstr "Advanced"
+
+#: prefs.js:282
+msgid "QR Codes"
+msgstr "QR Codes"
+
+#: prefs.js:286
+msgid "Auto-Open URLs"
+msgstr "Auto-Open URLs"
+
+#: prefs.js:287
+msgid "Automatically open HTTP/HTTPS links detected in QR codes."
+msgstr "Automatically open HTTP/HTTPS links detected in QR codes."
+
+#: prefs.js:304
+msgid "Translation (Experimental)"
+msgstr "Translation (Experimental)"
+
+#: prefs.js:331
+msgid "Privacy warning"
+msgstr "Privacy warning"
+
+#: prefs.js:337
+msgid ""
+"Auto-Translate sends extracted text to Google Translate. Privacy cannot be "
+"guaranteed when enabled."
+msgstr ""
+"Auto-Translate sends extracted text to Google Translate. Privacy cannot be "
+"guaranteed when enabled."
+
+#: prefs.js:353
+msgid "Automatically translate extracted text to your target language."
+msgstr "Automatically translate extracted text to your target language."
+
+#: prefs.js:368
+msgid "Target Language Code"
+msgstr "Target Language Code"
+
+#: prefs.js:369
+msgid "e.g., en, fr, es, zh. Leave empty to use your system default language."
+msgstr "e.g., en, fr, es, zh. Leave empty to use your system default language."
+
+#: prefs.js:388
+msgid "Logging"
+msgstr "Logging"
+
+#: prefs.js:392
+msgid "Enable Debug Logging"
+msgstr "Enable Debug Logging"
+
+#: prefs.js:393
+msgid "Outputs detailed OCR and process logs to the system journal."
+msgstr "Outputs detailed OCR and process logs to the system journal."
+
+#: prefs.js:414
+msgid "About"
+msgstr ""
+
+#: prefs.js:449
+#, fuzzy, javascript-format
+msgid "Version %s"
+msgstr "Version"
+
+#: prefs.js:453
+msgid "by Christian Wittenberg"
+msgstr ""
+
+#: prefs.js:470
 #, fuzzy
 msgid "Buy me a coffee ☕"
 msgstr "Buy me a coffee ☕"
 
-#: prefs.js:203
+#: prefs.js:471
 #, fuzzy
-msgid "Report a Bug 🐛"
+msgid "Report a Bug 🐞"
 msgstr "Report a Bug 🐛"
 
-#: prefs.js:204
+#: prefs.js:472
 #, fuzzy
 msgid "Request a Feature 💡"
 msgstr "Request a Feature 🚀"
 
-#: prefs.js:210
-msgid "Developer Details"
-msgstr "Developer Details"
-
-#: prefs.js:212
-msgid "Author"
-msgstr "Author"
-
-#: prefs.js:213
-msgid "Version"
-msgstr "Version"
-
-#: prefs.js:220
-msgid "Advanced"
-msgstr "Advanced"
-
-#: prefs.js:225
-msgid "QR Codes"
-msgstr "QR Codes"
-
-#: prefs.js:229
-msgid "Auto-Open URLs"
-msgstr "Auto-Open URLs"
-
-#: prefs.js:230
-msgid "Automatically open HTTP/HTTPS links detected in QR codes."
-msgstr "Automatically open HTTP/HTTPS links detected in QR codes."
-
-#: prefs.js:246
-msgid "Translation (Experimental)"
-msgstr "Translation (Experimental)"
-
-#: prefs.js:277
-msgid "Privacy warning"
-msgstr "Privacy warning"
-
-#: prefs.js:284
+#: prefs.js:476
 msgid ""
-"Auto-Translate sends extracted text to Google Translate. Privacy cannot be "
-"guaranteed when enabled."
+"<b>Disclaimer</b>\n"
+"Optical Character Recognition (OCR) and smart data extraction are inherently "
+"imperfect. Results from this extension may be inaccurate, incomplete, "
+"incorrectly formatted, or affected by screen artifacts and misrecognized "
+"text. Always verify critical information, such as financial numbers, "
+"addresses, names, dates, and other sensitive data, manually. The author is "
+"not responsible for any consequences resulting from the use of incorrect or "
+"incomplete data extracted by this tool. Use this extension at your own risk."
 msgstr ""
-"Auto-Translate sends extracted text to Google Translate. Privacy cannot be "
-"guaranteed when enabled."
-
-#: prefs.js:300
-msgid "Auto-Translate Text"
-msgstr "Auto-Translate Text"
-
-#: prefs.js:301
-msgid "Automatically translate extracted text to your target language."
-msgstr "Automatically translate extracted text to your target language."
-
-#: prefs.js:315
-msgid "Target Language Code"
-msgstr "Target Language Code"
-
-#: prefs.js:316
-msgid "e.g., en, fr, es, zh. Leave empty to use your system default language."
-msgstr "e.g., en, fr, es, zh. Leave empty to use your system default language."
-
-#: prefs.js:333
-msgid "Logging"
-msgstr "Logging"
-
-#: prefs.js:337
-msgid "Enable Debug Logging"
-msgstr "Enable Debug Logging"
-
-#: prefs.js:338
-msgid "Outputs detailed OCR and process logs to the system journal."
-msgstr "Outputs detailed OCR and process logs to the system journal."
 
 #: dependencies.js:97
 #, fuzzy, javascript-format
@@ -250,6 +310,74 @@ msgstr ""
 #: dependencies.js:203
 msgid "Dismiss"
 msgstr "Dismiss"
+
+#: smartextractor.js:24
+msgid "Copy Clean Text"
+msgstr ""
+
+#: smartextractor.js:113
+msgid "Copy Link"
+msgstr ""
+
+#: smartextractor.js:129
+msgid "Copy Email"
+msgstr ""
+
+#: smartextractor.js:147
+msgid "Copy IPv4"
+msgstr ""
+
+#: smartextractor.js:183
+msgid "Copy IPv6"
+msgstr ""
+
+#: smartextractor.js:215
+msgid "Copy MAC Address"
+msgstr ""
+
+#: smartextractor.js:229 smartextractor.js:325
+msgid "Copy Number"
+msgstr ""
+
+#: smartextractor.js:241
+msgid "Copy UUID"
+msgstr ""
+
+#: smartextractor.js:253
+msgid "Copy Hex Color"
+msgstr ""
+
+#: smartextractor.js:266
+msgid "Copy Date"
+msgstr ""
+
+#: smartextractor.js:278
+msgid "Copy Phone"
+msgstr ""
+
+#: smartmenu.js:219
+#, javascript-format
+msgid "Copy text (%s)"
+msgstr ""
+
+#: smartmenu.js:227
+msgid "Extracted Data:"
+msgstr ""
+
+#~ msgid "Settings"
+#~ msgstr "Settings"
+
+#~ msgid "Allow triggering extraction via a keyboard shortcut."
+#~ msgstr "Allow triggering extraction via a keyboard shortcut."
+
+#~ msgid "Keyboard Shortcut Trigger"
+#~ msgstr "Keyboard Shortcut Trigger"
+
+#~ msgid "Developer Details"
+#~ msgstr "Developer Details"
+
+#~ msgid "Author"
+#~ msgstr "Author"
 
 #~ msgid "Snap Text Configuration"
 #~ msgstr "Snap Text Configuration"

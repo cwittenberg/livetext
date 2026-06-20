@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-13 21:56+0200\n"
+"POT-Creation-Date: 2026-06-20 16:41+0200\n"
 "PO-Revision-Date: 2026-06-12 01:36+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -16,156 +16,180 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:81
+#: extension.js:113
 #, fuzzy
 msgid "Snap Text Error"
 msgstr "સ્નેપ ટેક્સ્ટ"
 
-#: extension.js:107
+#: extension.js:157
 msgid "No history yet"
 msgstr "હજુ સુધી કોઈ ઈતિહાસ નથી"
 
-#: extension.js:150 extension.js:188
-msgid "Settings"
-msgstr "સેટિંગ્સ"
+#: extension.js:186 prefs.js:352
+msgid "Auto-Translate Text"
+msgstr "સ્વતઃ-અનુવાદ ટેક્સ્ટ"
 
-#: extension.js:204
+#: extension.js:256
 #, fuzzy
 msgid "Text copied"
 msgstr "લખાણ કાઢવામાં આવ્યું"
 
-#: extension.js:366
+#: extension.js:407
 msgid "Translation Error"
 msgstr "અનુવાદ ભૂલ"
 
-#: extension.js:366
+#: extension.js:407
 msgid "Could not connect to Google Translate."
 msgstr "Google અનુવાદ સાથે કનેક્ટ કરી શકાયું નથી."
 
-#: extension.js:466
+#: extension.js:562
 msgid "Snap Text"
 msgstr "સ્નેપ ટેક્સ્ટ"
 
-#: extension.js:466
+#: extension.js:562
 #, fuzzy
 msgid "No text found."
 msgstr "પસંદગીમાં કોઈ ટેક્સ્ટ મળ્યો નથી."
 
-#: extension.js:482
+#: extension.js:578
 #, fuzzy
 msgid "Text extracted"
 msgstr "લખાણ કાઢવામાં આવ્યું"
 
-#: prefs.js:38
+#: prefs.js:49 prefs.js:92
+msgid "Disabled"
+msgstr "અક્ષમ"
+
+#: prefs.js:69
+msgid "Press keys..."
+msgstr "કી દબાવો..."
+
+#: prefs.js:136
 msgid "General"
 msgstr "જનરલ"
 
-#: prefs.js:44
+#: prefs.js:142
 msgid ""
 "Instantly extract and copy text to your clipboard from anywhere on the "
 "screen."
 msgstr "સ્ક્રીન પર ગમે ત્યાંથી તમારા ક્લિપબોર્ડ પર ટેક્સ્ટને તરત જ એક્સટ્રેક્ટ અને કૉપિ કરો."
 
-#: prefs.js:55
-msgid "Behavior & Shortcuts"
-msgstr "વર્તન અને શૉર્ટકટ્સ"
+#: prefs.js:153
+msgid "System Tray & UI"
+msgstr ""
 
-#: prefs.js:59
+#: prefs.js:157
+msgid "Show Tray Icon"
+msgstr ""
+
+#: prefs.js:158
+msgid "Display the extension icon in the system top panel."
+msgstr ""
+
+#: prefs.js:171
 msgid "Show Extracted Text Notification"
 msgstr "એક્સટ્રેક્ટેડ ટેક્સ્ટ સૂચના બતાવો"
 
-#: prefs.js:60
+#: prefs.js:172
 msgid "Displays a system banner containing your copied text context."
 msgstr "તમારા કૉપિ કરેલ ટેક્સ્ટ સંદર્ભ ધરાવતું સિસ્ટમ બેનર દર્શાવે છે."
 
-#: prefs.js:74
+#: prefs.js:185
 msgid "Enable Extraction History"
 msgstr "નિષ્કર્ષણ ઇતિહાસ સક્ષમ કરો"
 
-#: prefs.js:75
+#: prefs.js:186
 msgid "Keep a history of up to 15 recent extractions in the context menu."
 msgstr "સંદર્ભ મેનૂમાં 15 જેટલા તાજેતરના નિષ્કર્ષણનો ઇતિહાસ રાખો."
 
-#: prefs.js:89
+#: prefs.js:201
 #, fuzzy
-msgid "Enable Keyboard Shortcut"
+msgid "Area Extraction"
+msgstr "નિષ્કર્ષણ ઇતિહાસ સક્ષમ કરો"
+
+#: prefs.js:205
+#, fuzzy
+msgid "Enable Area Selection Shortcut"
 msgstr "કીબોર્ડ શોર્ટકટ ટ્રિગર"
 
-#: prefs.js:90
-msgid "Allow triggering extraction via a keyboard shortcut."
-msgstr "કીબોર્ડ શોર્ટકટ દ્વારા નિષ્કર્ષણને ટ્રિગર કરવાની મંજૂરી આપો."
+#: prefs.js:206
+msgid "Trigger crosshair to draw a box around text to extract."
+msgstr ""
 
-#: prefs.js:104
-msgid "Keyboard Shortcut Trigger"
-msgstr "કીબોર્ડ શોર્ટકટ ટ્રિગર"
+#: prefs.js:220
+#, fuzzy
+msgid "Area Selection Shortcut"
+msgstr "વર્તન અને શૉર્ટકટ્સ"
 
-#: prefs.js:105
+#: prefs.js:221
 msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
 msgstr ""
 "શોર્ટકટ સેટ કરવા માટે ક્લિક કરો. રદ કરવા માટે Esc દબાવો, અક્ષમ કરવા માટે Backspace "
 "દબાવો."
 
-#: prefs.js:113 prefs.js:167
-msgid "Disabled"
-msgstr "અક્ષમ"
+#: prefs.js:229
+msgid "Smart Extraction"
+msgstr ""
 
-#: prefs.js:144
-msgid "Press keys..."
-msgstr "કી દબાવો..."
+#: prefs.js:230
+msgid ""
+"Smart extraction instantly reads text, parses links, and detects data "
+"directly beneath your cursor without needing to draw a box."
+msgstr ""
 
-#. GitHub repo links :
-#: prefs.js:202
+#: prefs.js:234
 #, fuzzy
-msgid "Buy me a coffee ☕"
-msgstr "મને કોફી ખરીદો ☕"
+msgid "Enable Smart Extraction"
+msgstr "નિષ્કર્ષણ ઇતિહાસ સક્ષમ કરો"
 
-#: prefs.js:203
+#: prefs.js:235
+msgid "Master toggle for pointer-based text extraction features."
+msgstr ""
+
+#: prefs.js:248
+msgid "Single-Click Smart Snap"
+msgstr ""
+
+#: prefs.js:249
+msgid ""
+"Extract text at the pointer location with a single click instead of dragging "
+"a box."
+msgstr ""
+
+#: prefs.js:264
 #, fuzzy
-msgid "Report a Bug 🐛"
-msgstr "બગની જાણ કરો 🐛"
+msgid "Smart Extraction Shortcut"
+msgstr "નિષ્કર્ષણ ઇતિહાસ સક્ષમ કરો"
 
-#: prefs.js:204
-#, fuzzy
-msgid "Request a Feature 💡"
-msgstr "સુવિધાની વિનંતી કરો 🚀"
+#: prefs.js:265
+msgid "Key combination to trigger extraction exactly at pointer location."
+msgstr ""
 
-#: prefs.js:210
-msgid "Developer Details"
-msgstr "વિકાસકર્તા વિગતો"
-
-#: prefs.js:212
-msgid "Author"
-msgstr "લેખક"
-
-#: prefs.js:213
-msgid "Version"
-msgstr "સંસ્કરણ"
-
-#: prefs.js:220
+#: prefs.js:277
 msgid "Advanced"
 msgstr "ઉન્નત"
 
-#: prefs.js:225
+#: prefs.js:282
 msgid "QR Codes"
 msgstr "QR કોડ્સ"
 
-#: prefs.js:229
+#: prefs.js:286
 msgid "Auto-Open URLs"
 msgstr "URL ને સ્વતઃ ખોલો"
 
-#: prefs.js:230
+#: prefs.js:287
 msgid "Automatically open HTTP/HTTPS links detected in QR codes."
 msgstr "QR કોડમાં શોધાયેલ HTTP/HTTPS લિંક્સ આપમેળે ખોલો."
 
-#: prefs.js:246
+#: prefs.js:304
 msgid "Translation (Experimental)"
 msgstr "અનુવાદ (પ્રાયોગિક)"
 
-#: prefs.js:277
+#: prefs.js:331
 msgid "Privacy warning"
 msgstr "ગોપનીયતા ચેતવણી"
 
-#: prefs.js:284
+#: prefs.js:337
 msgid ""
 "Auto-Translate sends extracted text to Google Translate. Privacy cannot be "
 "guaranteed when enabled."
@@ -173,34 +197,70 @@ msgstr ""
 "સ્વતઃ-અનુવાદ Google અનુવાદને એક્સટ્રેક્ટ કરેલ ટેક્સ્ટ મોકલે છે. જ્યારે સક્ષમ હોય ત્યારે "
 "ગોપનીયતાની ખાતરી આપી શકાતી નથી."
 
-#: prefs.js:300
-msgid "Auto-Translate Text"
-msgstr "સ્વતઃ-અનુવાદ ટેક્સ્ટ"
-
-#: prefs.js:301
+#: prefs.js:353
 msgid "Automatically translate extracted text to your target language."
 msgstr "એક્સટ્રેક્ટેડ ટેક્સ્ટને તમારી લક્ષ્ય ભાષામાં આપમેળે અનુવાદિત કરો."
 
-#: prefs.js:315
+#: prefs.js:368
 msgid "Target Language Code"
 msgstr "લક્ષ્ય ભાષા કોડ"
 
-#: prefs.js:316
+#: prefs.js:369
 msgid "e.g., en, fr, es, zh. Leave empty to use your system default language."
 msgstr ""
 "દા.ત., en, fr, es, zh. તમારી સિસ્ટમ ડિફોલ્ટ ભાષાનો ઉપયોગ કરવા માટે ખાલી છોડો."
 
-#: prefs.js:333
+#: prefs.js:388
 msgid "Logging"
 msgstr "લોગીંગ"
 
-#: prefs.js:337
+#: prefs.js:392
 msgid "Enable Debug Logging"
 msgstr "ડીબગ લોગીંગ સક્ષમ કરો"
 
-#: prefs.js:338
+#: prefs.js:393
 msgid "Outputs detailed OCR and process logs to the system journal."
 msgstr "સિસ્ટમ જર્નલમાં વિગતવાર OCR અને પ્રક્રિયા લોગ આઉટપુટ કરે છે."
+
+#: prefs.js:414
+msgid "About"
+msgstr ""
+
+#: prefs.js:449
+#, fuzzy, javascript-format
+msgid "Version %s"
+msgstr "સંસ્કરણ"
+
+#: prefs.js:453
+msgid "by Christian Wittenberg"
+msgstr ""
+
+#: prefs.js:470
+#, fuzzy
+msgid "Buy me a coffee ☕"
+msgstr "મને કોફી ખરીદો ☕"
+
+#: prefs.js:471
+#, fuzzy
+msgid "Report a Bug 🐞"
+msgstr "બગની જાણ કરો 🐛"
+
+#: prefs.js:472
+#, fuzzy
+msgid "Request a Feature 💡"
+msgstr "સુવિધાની વિનંતી કરો 🚀"
+
+#: prefs.js:476
+msgid ""
+"<b>Disclaimer</b>\n"
+"Optical Character Recognition (OCR) and smart data extraction are inherently "
+"imperfect. Results from this extension may be inaccurate, incomplete, "
+"incorrectly formatted, or affected by screen artifacts and misrecognized "
+"text. Always verify critical information, such as financial numbers, "
+"addresses, names, dates, and other sensitive data, manually. The author is "
+"not responsible for any consequences resulting from the use of incorrect or "
+"incomplete data extracted by this tool. Use this extension at your own risk."
+msgstr ""
 
 #: dependencies.js:97
 #, fuzzy, javascript-format
@@ -249,6 +309,74 @@ msgstr ""
 #: dependencies.js:203
 msgid "Dismiss"
 msgstr "કાઢી નાખો"
+
+#: smartextractor.js:24
+msgid "Copy Clean Text"
+msgstr ""
+
+#: smartextractor.js:113
+msgid "Copy Link"
+msgstr ""
+
+#: smartextractor.js:129
+msgid "Copy Email"
+msgstr ""
+
+#: smartextractor.js:147
+msgid "Copy IPv4"
+msgstr ""
+
+#: smartextractor.js:183
+msgid "Copy IPv6"
+msgstr ""
+
+#: smartextractor.js:215
+msgid "Copy MAC Address"
+msgstr ""
+
+#: smartextractor.js:229 smartextractor.js:325
+msgid "Copy Number"
+msgstr ""
+
+#: smartextractor.js:241
+msgid "Copy UUID"
+msgstr ""
+
+#: smartextractor.js:253
+msgid "Copy Hex Color"
+msgstr ""
+
+#: smartextractor.js:266
+msgid "Copy Date"
+msgstr ""
+
+#: smartextractor.js:278
+msgid "Copy Phone"
+msgstr ""
+
+#: smartmenu.js:219
+#, javascript-format
+msgid "Copy text (%s)"
+msgstr ""
+
+#: smartmenu.js:227
+msgid "Extracted Data:"
+msgstr ""
+
+#~ msgid "Settings"
+#~ msgstr "સેટિંગ્સ"
+
+#~ msgid "Allow triggering extraction via a keyboard shortcut."
+#~ msgstr "કીબોર્ડ શોર્ટકટ દ્વારા નિષ્કર્ષણને ટ્રિગર કરવાની મંજૂરી આપો."
+
+#~ msgid "Keyboard Shortcut Trigger"
+#~ msgstr "કીબોર્ડ શોર્ટકટ ટ્રિગર"
+
+#~ msgid "Developer Details"
+#~ msgstr "વિકાસકર્તા વિગતો"
+
+#~ msgid "Author"
+#~ msgstr "લેખક"
 
 #~ msgid "Snap Text Configuration"
 #~ msgstr "સ્નેપ ટેક્સ્ટ કન્ફિગરેશન"

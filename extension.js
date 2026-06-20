@@ -189,10 +189,6 @@ export default class SnapTextExtension extends Extension {
             this._settings.set_boolean('translate-text', state);
         }, this);
         
-        this._translateToggle.activate = function(event) {
-            this.toggle();
-        };
-        
         this._indicator.menu.addMenuItem(this._translateToggle);
         this._indicator.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
 
@@ -362,22 +358,6 @@ export default class SnapTextExtension extends Extension {
         this._activeProcesses.clear();
     }
 
-    async _waitForProcess(process, cancellable = this._cancellable) {
-        return new Promise(resolve => {
-            process.wait_async(cancellable, (proc, result) => {
-                try {
-                    proc.wait_finish(result);
-                    resolve(proc.get_successful());
-                } catch (error) {
-                    if (!this._isCancelled(cancellable)) {
-                        this._notifyError(`Process wait failed: ${error}`);
-                    }
-                    resolve(false);
-                }
-            });
-        });
-    }
-
     async _translateText(text, cancellable = this._cancellable) {
         if (!this._settings.get_boolean('translate-text') || !text || !this._soupSession) {
             return text;
@@ -436,6 +416,7 @@ export default class SnapTextExtension extends Extension {
             this._selectionUI = new SelectionUI((x, y, w, h) => {
                 if (this._selectionTimeoutId) {
                     GLib.source_remove(this._selectionTimeoutId);
+                    this._selectionTimeoutId = null;
                 }
                 
                 this._selectionTimeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 150, () => {

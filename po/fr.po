@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-13 21:56+0200\n"
+"POT-Creation-Date: 2026-06-20 16:41+0200\n"
 "PO-Revision-Date: 2026-06-12 01:36+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,51 +17,59 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: extension.js:81
+#: extension.js:113
 #, fuzzy
 msgid "Snap Text Error"
 msgstr "Texte instantané"
 
-#: extension.js:107
+#: extension.js:157
 msgid "No history yet"
 msgstr "Pas encore d'historique"
 
-#: extension.js:150 extension.js:188
-msgid "Settings"
-msgstr "Paramètres"
+#: extension.js:186 prefs.js:352
+msgid "Auto-Translate Text"
+msgstr "Traduire automatiquement le texte"
 
-#: extension.js:204
+#: extension.js:256
 #, fuzzy
 msgid "Text copied"
 msgstr "Texte extrait"
 
-#: extension.js:366
+#: extension.js:407
 msgid "Translation Error"
 msgstr "Erreur de traduction"
 
-#: extension.js:366
+#: extension.js:407
 msgid "Could not connect to Google Translate."
 msgstr "Impossible de se connecter à Google Translate."
 
-#: extension.js:466
+#: extension.js:562
 msgid "Snap Text"
 msgstr "Texte instantané"
 
-#: extension.js:466
+#: extension.js:562
 #, fuzzy
 msgid "No text found."
 msgstr "Aucun texte trouvé dans la sélection."
 
-#: extension.js:482
+#: extension.js:578
 #, fuzzy
 msgid "Text extracted"
 msgstr "Texte extrait"
 
-#: prefs.js:38
+#: prefs.js:49 prefs.js:92
+msgid "Disabled"
+msgstr "Désactivé"
+
+#: prefs.js:69
+msgid "Press keys..."
+msgstr "Appuyez sur les touches..."
+
+#: prefs.js:136
 msgid "General"
 msgstr "Général"
 
-#: prefs.js:44
+#: prefs.js:142
 msgid ""
 "Instantly extract and copy text to your clipboard from anywhere on the "
 "screen."
@@ -69,109 +77,125 @@ msgstr ""
 "Extrayez et copiez instantanément du texte dans votre presse-papiers depuis "
 "n'importe où sur l'écran."
 
-#: prefs.js:55
-msgid "Behavior & Shortcuts"
-msgstr "Comportement et raccourcis"
+#: prefs.js:153
+msgid "System Tray & UI"
+msgstr ""
 
-#: prefs.js:59
+#: prefs.js:157
+msgid "Show Tray Icon"
+msgstr ""
+
+#: prefs.js:158
+msgid "Display the extension icon in the system top panel."
+msgstr ""
+
+#: prefs.js:171
 msgid "Show Extracted Text Notification"
 msgstr "Afficher la notification de texte extrait"
 
-#: prefs.js:60
+#: prefs.js:172
 msgid "Displays a system banner containing your copied text context."
 msgstr "Affiche une bannière système contenant votre contexte de texte copié."
 
-#: prefs.js:74
+#: prefs.js:185
 msgid "Enable Extraction History"
 msgstr "Activer l'historique d'extraction"
 
-#: prefs.js:75
+#: prefs.js:186
 msgid "Keep a history of up to 15 recent extractions in the context menu."
 msgstr ""
 "Conservez un historique de 15 extractions récentes maximum dans le menu "
 "contextuel."
 
-#: prefs.js:89
+#: prefs.js:201
 #, fuzzy
-msgid "Enable Keyboard Shortcut"
+msgid "Area Extraction"
+msgstr "Activer l'historique d'extraction"
+
+#: prefs.js:205
+#, fuzzy
+msgid "Enable Area Selection Shortcut"
 msgstr "Déclencheur de raccourci clavier"
 
-#: prefs.js:90
-msgid "Allow triggering extraction via a keyboard shortcut."
-msgstr "Autoriser le déclenchement de l'extraction via un raccourci clavier."
+#: prefs.js:206
+msgid "Trigger crosshair to draw a box around text to extract."
+msgstr ""
 
-#: prefs.js:104
-msgid "Keyboard Shortcut Trigger"
-msgstr "Déclencheur de raccourci clavier"
+#: prefs.js:220
+#, fuzzy
+msgid "Area Selection Shortcut"
+msgstr "Comportement et raccourcis"
 
-#: prefs.js:105
+#: prefs.js:221
 msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
 msgstr ""
 "Cliquez pour définir un raccourci. Appuyez sur Echap pour annuler, Retour "
 "arrière pour désactiver."
 
-#: prefs.js:113 prefs.js:167
-msgid "Disabled"
-msgstr "Désactivé"
+#: prefs.js:229
+msgid "Smart Extraction"
+msgstr ""
 
-#: prefs.js:144
-msgid "Press keys..."
-msgstr "Appuyez sur les touches..."
+#: prefs.js:230
+msgid ""
+"Smart extraction instantly reads text, parses links, and detects data "
+"directly beneath your cursor without needing to draw a box."
+msgstr ""
 
-#. GitHub repo links :
-#: prefs.js:202
+#: prefs.js:234
 #, fuzzy
-msgid "Buy me a coffee ☕"
-msgstr "Offre-moi un café ☕"
+msgid "Enable Smart Extraction"
+msgstr "Activer l'historique d'extraction"
 
-#: prefs.js:203
+#: prefs.js:235
+msgid "Master toggle for pointer-based text extraction features."
+msgstr ""
+
+#: prefs.js:248
+msgid "Single-Click Smart Snap"
+msgstr ""
+
+#: prefs.js:249
+msgid ""
+"Extract text at the pointer location with a single click instead of dragging "
+"a box."
+msgstr ""
+
+#: prefs.js:264
 #, fuzzy
-msgid "Report a Bug 🐛"
-msgstr "Signaler un bug 🐛"
+msgid "Smart Extraction Shortcut"
+msgstr "Activer l'historique d'extraction"
 
-#: prefs.js:204
-#, fuzzy
-msgid "Request a Feature 💡"
-msgstr "Demander une fonctionnalité 🚀"
+#: prefs.js:265
+msgid "Key combination to trigger extraction exactly at pointer location."
+msgstr ""
 
-#: prefs.js:210
-msgid "Developer Details"
-msgstr "Détails du développeur"
-
-#: prefs.js:212
-msgid "Author"
-msgstr "Auteur"
-
-#: prefs.js:213
-msgid "Version"
-msgstr "Version"
-
-#: prefs.js:220
+#: prefs.js:277
 msgid "Advanced"
 msgstr "Avancé"
 
-#: prefs.js:225
+#: prefs.js:282
 msgid "QR Codes"
 msgstr "Codes QR"
 
-#: prefs.js:229
+#: prefs.js:286
 msgid "Auto-Open URLs"
 msgstr "URL à ouverture automatique"
 
-#: prefs.js:230
+#: prefs.js:287
 msgid "Automatically open HTTP/HTTPS links detected in QR codes."
 msgstr ""
 "Ouvrez automatiquement les liens HTTP/HTTPS détectés dans les codes QR."
 
-#: prefs.js:246
+#: prefs.js:304
 msgid "Translation (Experimental)"
 msgstr "Traduction (expérimentale)"
 
-#: prefs.js:277
+#: prefs.js:331
 msgid "Privacy warning"
 msgstr "Avertissement de confidentialité"
 
-#: prefs.js:284
+#: prefs.js:337
 msgid ""
 "Auto-Translate sends extracted text to Google Translate. Privacy cannot be "
 "guaranteed when enabled."
@@ -179,36 +203,72 @@ msgstr ""
 "La traduction automatique envoie le texte extrait à Google Translate. La "
 "confidentialité ne peut pas être garantie lorsqu'elle est activée."
 
-#: prefs.js:300
-msgid "Auto-Translate Text"
-msgstr "Traduire automatiquement le texte"
-
-#: prefs.js:301
+#: prefs.js:353
 msgid "Automatically translate extracted text to your target language."
 msgstr "Traduisez automatiquement le texte extrait dans votre langue cible."
 
-#: prefs.js:315
+#: prefs.js:368
 msgid "Target Language Code"
 msgstr "Code de langue cible"
 
-#: prefs.js:316
+#: prefs.js:369
 msgid "e.g., en, fr, es, zh. Leave empty to use your system default language."
 msgstr ""
 "par exemple, en, fr, es, zh. Laissez vide pour utiliser la langue par défaut "
 "de votre système."
 
-#: prefs.js:333
+#: prefs.js:388
 msgid "Logging"
 msgstr "Enregistrement"
 
-#: prefs.js:337
+#: prefs.js:392
 msgid "Enable Debug Logging"
 msgstr "Activer la journalisation du débogage"
 
-#: prefs.js:338
+#: prefs.js:393
 msgid "Outputs detailed OCR and process logs to the system journal."
 msgstr ""
 "Génère des journaux d'OCR et de processus détaillés dans le journal système."
+
+#: prefs.js:414
+msgid "About"
+msgstr ""
+
+#: prefs.js:449
+#, fuzzy, javascript-format
+msgid "Version %s"
+msgstr "Version"
+
+#: prefs.js:453
+msgid "by Christian Wittenberg"
+msgstr ""
+
+#: prefs.js:470
+#, fuzzy
+msgid "Buy me a coffee ☕"
+msgstr "Offre-moi un café ☕"
+
+#: prefs.js:471
+#, fuzzy
+msgid "Report a Bug 🐞"
+msgstr "Signaler un bug 🐛"
+
+#: prefs.js:472
+#, fuzzy
+msgid "Request a Feature 💡"
+msgstr "Demander une fonctionnalité 🚀"
+
+#: prefs.js:476
+msgid ""
+"<b>Disclaimer</b>\n"
+"Optical Character Recognition (OCR) and smart data extraction are inherently "
+"imperfect. Results from this extension may be inaccurate, incomplete, "
+"incorrectly formatted, or affected by screen artifacts and misrecognized "
+"text. Always verify critical information, such as financial numbers, "
+"addresses, names, dates, and other sensitive data, manually. The author is "
+"not responsible for any consequences resulting from the use of incorrect or "
+"incomplete data extracted by this tool. Use this extension at your own risk."
+msgstr ""
 
 #: dependencies.js:97
 #, fuzzy, javascript-format
@@ -258,6 +318,75 @@ msgstr ""
 #: dependencies.js:203
 msgid "Dismiss"
 msgstr "Rejeter"
+
+#: smartextractor.js:24
+msgid "Copy Clean Text"
+msgstr ""
+
+#: smartextractor.js:113
+msgid "Copy Link"
+msgstr ""
+
+#: smartextractor.js:129
+msgid "Copy Email"
+msgstr ""
+
+#: smartextractor.js:147
+msgid "Copy IPv4"
+msgstr ""
+
+#: smartextractor.js:183
+msgid "Copy IPv6"
+msgstr ""
+
+#: smartextractor.js:215
+msgid "Copy MAC Address"
+msgstr ""
+
+#: smartextractor.js:229 smartextractor.js:325
+msgid "Copy Number"
+msgstr ""
+
+#: smartextractor.js:241
+msgid "Copy UUID"
+msgstr ""
+
+#: smartextractor.js:253
+msgid "Copy Hex Color"
+msgstr ""
+
+#: smartextractor.js:266
+msgid "Copy Date"
+msgstr ""
+
+#: smartextractor.js:278
+msgid "Copy Phone"
+msgstr ""
+
+#: smartmenu.js:219
+#, javascript-format
+msgid "Copy text (%s)"
+msgstr ""
+
+#: smartmenu.js:227
+msgid "Extracted Data:"
+msgstr ""
+
+#~ msgid "Settings"
+#~ msgstr "Paramètres"
+
+#~ msgid "Allow triggering extraction via a keyboard shortcut."
+#~ msgstr ""
+#~ "Autoriser le déclenchement de l'extraction via un raccourci clavier."
+
+#~ msgid "Keyboard Shortcut Trigger"
+#~ msgstr "Déclencheur de raccourci clavier"
+
+#~ msgid "Developer Details"
+#~ msgstr "Détails du développeur"
+
+#~ msgid "Author"
+#~ msgstr "Auteur"
 
 #~ msgid "Snap Text Configuration"
 #~ msgstr "Configuration du texte instantané"
