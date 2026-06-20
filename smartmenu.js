@@ -120,13 +120,12 @@ export class SmartMenu {
             applyCursor('BLANK');
             grab = Main.pushModal(blankOverlay);
 
-            if (this._cursorTimeoutId) {
-                GLib.source_remove(this._cursorTimeoutId);
-                this._cursorTimeoutId = null;
-            }
-
-            // Allow compositor a tiny moment to render the blank cursor
             await new Promise(resolve => {
+                if (this._cursorTimeoutId) {
+                    GLib.source_remove(this._cursorTimeoutId);
+                    this._cursorTimeoutId = null;
+                }
+                
                 this._cursorTimeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 50, () => {
                     this._cursorTimeoutId = null;
                     resolve();
